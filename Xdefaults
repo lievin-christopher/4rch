@@ -1,0 +1,61 @@
+!! Appearance
+urxvt.termName: rxvt-unicode
+urxvt.scrollBar: false
+urxvt.depth: 32
+urxvt.background: rgba:0064/0061/0046/cccc
+urxvt.foreground: #b5a780
+urxvt.cursorColor: #b5a780
+URxvt.geometry: 108x25
+URxvt.transparent: true
+URxvt.shading: 20
+!! Font prefferenes
+urxvt.font: xft:Hack:pixelsize=14, xft:DejaVu Serif:size=12, xft:Font Awersome:size=9
+urxvt.boldFont: xft:Hack:pixelsize=14:weight=bold
+urxvt.letterSpace: -1
+!! Larger history limit
+urxvt.saveLines: 1000000
+
+!! Perl extensions
+URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select,font-size
+URxvt.url-select.launcher: firefox
+URxvt.url-select.underline: true
+URxvt.iso14755 : false
+URxvt.keysym.Control-Shift-V:eval:paste_cliboard
+URxvt.keysym.Control-Shift-C:eval:selection_to_clipboard
+URxvt.keysym.M-u:           perl:url-select:select_next
+URxvt.keysym.M-Escape:      perl:keyboard-select:activate
+URxvt.keysym.M-s:           perl:keyboard-select:search
+URxvt.keysym.Control-0x2b: perl:font-size:increase
+URxvt.keysym.Control-0x2d: perl:font-size:decrease
+
+! black
+URxvt.color0:    #bfbfbf
+URxvt.color8:    #709080
+
+! red
+URxvt.color1:    #bf616a
+URxvt.color9:    #bf616a
+
+! green
+URxvt.color2:    #60b48a
+URxvt.color10:   #92be6d
+
+! yellow
+URxvt.color3:    #ebbe65
+URxvt.color11:   #ebbe65
+
+! blue
+URxvt.color4:    #02c9ff
+URxvt.color12:   #02b9eb
+
+! magenta
+URxvt.color5:    #9285FF
+URxvt.color13:   #9285ff
+
+! cyan
+URxvt.color6:    #76e2ff
+URxvt.color14:   #c0f2ff
+
+! white
+URxvt.color7:    #dcdccc
+URxvt.color15:   #9285FF

@@ -1,0 +1,373 @@
+;=====================================================
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/jaagr/polybar
+;
+;   The README contains alot of information
+;
+;=====================================================
+
+[colors]
+; black
+color0 = #0f1111
+;color0 = #1D1F21
+color8 = #709080
+; red
+color1 = #bf616a
+color9 = #bf616a
+; green
+color2 = #60b48a
+color10 = #92be6d
+; yellow
+color3 = #ebbe65
+color11 =  #ebbe65
+; blue
+color4 = #02c9ff
+color12 = #02b9eb
+; magenta
+color5 = #9285FF
+color13 = #9285ff
+; cyan
+color6 = #76e2ff
+color14 = #c0f2ff
+; white
+color7 = #dcdccc
+color15 = #9285FF
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+[bar/top]
+monitor = ${env:MONITOR:DVI-I-1}
+width = 100%
+height = 17
+offset-x = 0
+offset-y = 0
+fixed-center = true
+
+background = ${colors.color0}
+foreground = ${colors.color7}
+
+overline-size = 0
+overline-color = #f00
+underline-size = 0
+underline-color = ${colors.color7}
+
+border-bottom-size = 0
+border-bottom-color = ${colors.color7}
+
+spacing = 1
+padding-left = 1
+padding-right = 1
+module-margin-left = 1
+module-margin-right = 1
+
+font-0 = Hack:pixelsize=8;2
+font-1 = "Material Icons:pixelsize=12;4"
+font-2 = "Font Awesome 5 Free:style=Solid:pixelsize=10;2"
+font-3 = "Font Awesome 5 Brands:pixelsize=10;2"
+
+modules-left = i3
+modules-center = date
+modules-right = weather cpu memory temperature volume openvpn wlan eth battery powermenu
+
+tray-position = right
+tray-padding = 2
+
+
+[module/i3]
+type = internal/i3
+
+; ws-icon-[0-9]+ = label;icon
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;3
+ws-icon-3 = 4;4
+ws-icon-4 = 5;5
+ws-icon-5 = 6;6
+ws-icon-6 = 7;7
+ws-icon-7 = 8;8
+ws-icon-8 = 9;9
+ws-icon-9 = 10;10
+;ws-icon-default = 
+
+;strip-wsnumbers = true
+
+label-focused = %icon%
+label-focused-underline = ${colors.color7}
+label-focused-foreground = ${colors.color4}
+label-focused-padding = 1
+
+label-unfocused = %icon%
+label-unfocused-padding = 1
+label-unfocused-foreground = ${colors.color7}
+
+label-urgent = %icon%
+label-urgent-foreground = ${colors.color5}
+label-urgent-padding = 1
+
+label-visible = %name%
+label-visible-padding = 1
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = %{A:urxvt -T "monitor" -e htop:} %{A}
+format-prefix-foreground = ${colors.color4}
+;format-underline = #f90000
+label =  %{A:urxvt -T "monitor" -e htop:}%percentage%%%{A}
+label-foreground = ${colors.color4}
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = %{A:urxvt -T "monitor" -e htop:} %{A}
+format-prefix-foreground = ${colors.color5}
+;format-underline = #4bffdc
+label = %{A:urxvt -T "monitor" -e htop:}%percentage_used%%%{A}
+label-foreground = ${colors.color5}
+
+[module/wlan]
+type = internal/network
+interface = wlp4s0
+interval = 3.0
+
+format-connected = <ramp-signal><label-connected>
+;format-connected-underline = #5e468c
+;format-disconnected-underline = ${self.format-connected-underline}
+
+label-connected = %{F#02c9ff} %downspeed%%{F-} %{F#9285FF}%upspeed%
+label-connected-foreground = ${colors.color7}
+label-disconnected = 
+label-disconnected-foreground = ${colors.color1}
+format-connected-alt = 12
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-foreground = ${colors.color2}
+
+[module/eth]
+type = internal/network
+interface = eno1
+interval = 3.0
+
+format-connected-prefix = "%{F#60b48a} %{F-}"
+label-connected = %{F#02c9ff} %downspeed%%{F-} %{F#9285FF}%upspeed%
+label-connected-foreground = ${colors.color7}
+
+label-disconnected = 
+label-disconnected-foreground = ${colors.color1}
+
+[module/date]
+type = internal/date
+interval = 1
+
+date = %a %d %b %Y
+date-alt = %a %d %b %Y
+
+time = %H:%M:%S
+time-alt = %H:%M
+
+; format-prefix = 
+format-prefix-foreground = ${colors.color7}
+;format-underline = #0a6cf5
+label = %{A:urxvt -T "calendar" -e zsh -c "task calendar && task list && read":}%{F#D8DEE9}────[%{F-} %{F#02c9ff}%date%%{F-}%{F#bf616a} %time%%{F-} %{F#D8DEE9}]────%{F-}%{A}
+
+[module/battery]
+type = internal/battery
+battery = BAT1
+adapter = ADP1
+full-at = 95
+format-charging = <animation-charging> <label-charging>
+;format-charging-underline = #ffb52a
+
+format-discharging = <ramp-capacity> <label-discharging>
+;format-discharging-underline = ${self.format-charging-underline}
+
+; format-full-prefix = " "
+format-full-prefix-foreground = ${colors.color7}
+;format-full-underline = ${self.format-charging-underline}
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-foreground = ${colors.color7}
+
+;animation-charging-0 = 
+;animation-charging-1 = 
+;animation-charging-2 = 
+animation-charging-foreground = ${colors.color7}
+animation-charging-framerate = 750
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 60
+
+format = <ramp> <label>
+;format-underline = #f50a4d
+format-warn = <ramp> <label-warn>
+;format-warn-underline = ${self.format-underline}
+
+label = %temperature%
+label-warn = %temperature%
+label-warn-foreground = ${colors.color7}
+
+ramp-0 = %{F#76e2ff}
+ramp-1 = %{F#02c9ff}
+ramp-2 = %{F#60b48a}
+ramp-3 = %{F#9285FF}
+ramp-4 = %{F#bf616a}
+
+[module/mpd]
+type = internal/mpd
+; format-online = <icon-prev> <icon-stop> <toggle> <icon-next> <label-song>
+
+
+
+; label-song-maxlen = 45
+; label-song-ellipsis = true
+
+; Available tags:
+;   <label-song> (default)
+;   <label-time>
+;   <bar-progress>
+;   <toggle> - gets replaced with <icon-(pause|play)>
+;   <toggle-stop> - gets replaced with <icon-(stop|play)>
+;   <icon-random>
+;   <icon-repeat>
+;   <icon-repeatone>
+;   <icon-consume>
+;   <icon-prev>
+;   <icon-stop>
+;   <icon-play>
+;   <icon-pause>
+;   <icon-next>
+;   <icon-seekb>
+;   <icon-seekf>
+format-online = <label-song>  <bar-progress> <label-time>  <icon-prev> <icon-seekb> <icon-stop> <toggle> <icon-seekf> <icon-next>  <icon-repeatone> <icon-repeat> <icon-random>
+; format-playing = ${self.format-online}
+; format-paused = ${self.format-online}
+; format-stopped = ${self.format-online}
+
+; Available tags:
+;   <label-offline>
+format-offline = <label-offline>
+
+; Available tokens:
+;   %artist%
+;   %album%
+;   %date%
+;   %title%
+; Default: %artist% - %title%
+label-song = 𝄞 %artist% • %title%
+
+; Available tokens:
+;   %elapsed%
+;   %total%
+; Default: %elapsed% / %total%
+;label-time = %elapsed% / %total%
+
+; Available tokens:
+;   None
+label-offline = mpd est hors ligne
+
+; Only applies if <icon-X> is used
+icon-prev = 
+icon-stop = 
+icon-play = 
+icon-pause = 
+icon-next = 
+icon-seekb = 
+icon-seekf = 
+icon-random = 
+icon-repeat = 
+icon-repeatone = 
+icon-consume = ✀
+
+; Used to display the state of random/repeat/repeatone
+; Only applies if <icon-[random|repeat|repeatone]> is used
+toggle-on-foreground = #ff
+toggle-off-foreground = #55
+
+; Only applies if <bar-progress> is used
+bar-progress-width = 25
+bar-progress-indicator = |
+bar-progress-fill = ─
+bar-progress-empty = ─
+
+[module/volume]
+type = internal/volume
+
+format-volume = <ramp-volume><label-volume>
+label-volume = %percentage%%
+;label-volume-foreground = ${colors.color7}
+
+format-muted-foreground = ${colors.color1}
+label-muted = 
+
+bar-volume-width = 10
+bar-volume-foreground-0 = ${colors.color2}
+bar-volume-foreground-1 = ${colors.color2}
+bar-volume-foreground-2 = ${colors.color2}
+bar-volume-foreground-3 = ${colors.color2}
+bar-volume-foreground-4 = ${colors.color2}
+bar-volume-foreground-5 = ${colors.color4}
+bar-volume-foreground-6 = ${colors.color5}
+bar-volume-gradient = false
+bar-volume-indicator = |
+bar-volume-indicator-font = 3
+bar-volume-fill = ─
+bar-volume-fill-font = 3
+bar-volume-empty = ─
+bar-volume-empty-font = 3
+bar-volume-empty-foreground = ${colors.color7}
+ramp-volume-0 = %{F#bf616a}
+ramp-volume-1 = %{F#60b48a}
+ramp-volume-2 = %{F#60b48a}
+ramp-volume-3 = %{F#02c9ff}
+ramp-volume-4 = %{F#9285FF}
+
+[module/powermenu]
+type = custom/menu
+expand-right = false
+
+format-spacing = 1
+
+label-open = 
+label-open-foreground = ${colors.color9}
+label-close =  cancel
+label-close-foreground = ${colors.color9}
+label-separator = |
+label-separator-foreground = ${colors.color9}
+
+menu-0-0 = reboot
+menu-0-0-exec = menu-open-1
+menu-0-1 = power off
+menu-0-1-exec = menu-open-2
+
+menu-1-0 = cancel
+menu-1-0-exec = menu-open-0
+menu-1-1 = reboot
+menu-1-1-exec = reboot
+
+menu-2-0 = power off
+menu-2-0-exec = poweroff
+menu-2-1 = cancel
+menu-2-1-exec = menu-open-0
+
+[module/weather]
+type = custom/script
+exec = python3 .config/polybar/weather.py
+tail = true
+
+[module/openvpn]
+type = custom/script
+exec = .config/polybar/openvpn_status.sh
+tail = true
