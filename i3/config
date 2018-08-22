@@ -157,7 +157,7 @@ bindsym XF86AudioPrev exec playerctl previous
 
 
 # General
-exec_always --no-startup-id feh --bg-center ~/Images/Wallpapers/Ozoz.full.2060156.jpg
+exec_always --no-startup-id feh --bg-center ~/.i3/back.jpg
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id redshift -l 50.6333:3.0667
 smart_borders no_gaps
