@@ -130,16 +130,16 @@ label-foreground = ${colors.color5}
 
 [module/wlan]
 type = internal/network
-interface = wlp4s0
+interface = ${env:WIRELESS}
 interval = 3.0
 
 format-connected = <ramp-signal><label-connected>
 ;format-connected-underline = #5e468c
 ;format-disconnected-underline = ${self.format-connected-underline}
 
-label-connected = %{F#02c9ff} %downspeed%%{F-} %{F#9285FF}%upspeed%
+label-connected = %{A:urxvt -T "wifi" -e sudo wifi-menu:} %{F#02c9ff}%downspeed%%{F-} %{F#9285FF}%upspeed%%{F-}%{A}
 label-connected-foreground = ${colors.color7}
-label-disconnected = 
+label-disconnected = %{A:urxvt -T "wifi" -e sudo wifi-menu:}%{A}
 label-disconnected-foreground = ${colors.color1}
 format-connected-alt = 12
 
@@ -152,7 +152,7 @@ ramp-signal-foreground = ${colors.color2}
 
 [module/eth]
 type = internal/network
-interface = eno1
+interface = ${env:WIRED:eno1}
 interval = 3.0
 
 format-connected-prefix = "%{F#60b48a} %{F-}"
@@ -179,9 +179,9 @@ label = %{A:urxvt -T "calendar" -e zsh -c "task calendar && task list && read":}
 
 [module/battery]
 type = internal/battery
-battery = BAT1
+battery = BAT0
 adapter = ADP1
-full-at = 95
+full-at = 99
 format-charging = <animation-charging> <label-charging>
 ;format-charging-underline = #ffb52a
 

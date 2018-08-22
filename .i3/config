@@ -157,8 +157,9 @@ bindsym XF86AudioPrev exec playerctl previous
 
 
 # General
-exec_always --no-startup-id feh --bg-center ~/.i3/back.jpg
+exec_always --no-startup-id feh --bg-fill ~/.i3/back.jpg
 exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec_always --no-startup-id killall redshift
 exec_always --no-startup-id redshift -l 50.6333:3.0667
 smart_borders no_gaps
 gaps outer 2
@@ -166,6 +167,7 @@ gaps inner 5
 for_window [class="^.*"] border pixel 0
 for_window [title="^calendar"] floating enable move absolute position center move up 300 px
 for_window [title="^monitor"] floating enable move absolute position center move up 300 px move right 500 px
+for_window [title="^wifi"] floating enable move absolute position center move up 300 px move right 600 px
 for_window [title="^sxiv .*gif"] floating enable move absolute position center move up 200 px move right 400 px focus_on_window_activation none
 # End General
 

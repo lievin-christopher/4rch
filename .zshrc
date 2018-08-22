@@ -4,6 +4,9 @@ export ZSH_THEME="rkj-repos"
 export HIST_STAMPS="yyyy-mm-dd"
 export LANG="fr_FR.UTF-8"
 export SHELL="zsh"
+export MONITOR=$(polybar --list-monitors | cut -f1 -d':')
+export WIRELESS=$(ip link | cut -f2 -d':' | grep wl | tr -d ' ')
+export WIRED=$(ip link | cut -f2 -d':' | grep en | tr -d ' ')
 
 plugins=(git)
 source $ZSH/oh-my-zsh.sh
