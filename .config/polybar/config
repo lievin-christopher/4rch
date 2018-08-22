@@ -137,9 +137,9 @@ format-connected = <ramp-signal><label-connected>
 ;format-connected-underline = #5e468c
 ;format-disconnected-underline = ${self.format-connected-underline}
 
-label-connected = %{A:urxvt -T "wifi" -e sudo wifi-menu:} %{F#02c9ff}%downspeed%%{F-} %{F#9285FF}%upspeed%%{F-}%{A}
+label-connected = %{A:urxvt -T "wifi_menu" -e sudo wifi-menu:} %{F#02c9ff}%downspeed%%{F-} %{F#9285FF}%upspeed%%{F-}%{A}
 label-connected-foreground = ${colors.color7}
-label-disconnected = %{A:urxvt -T "wifi" -e sudo wifi-menu:}%{A}
+label-disconnected = %{A:urxvt -T "wifi_menu" -e sudo wifi-menu:}%{A}
 label-disconnected-foreground = ${colors.color1}
 format-connected-alt = 12
 
