@@ -17,11 +17,12 @@ depends=('vlc' 'p7zip' 'p7zip-gui' 'ranger' 'rxvt-unicode-pixbuf' 'rxvt-unicode-
 optdepends=('gtop' 'krita' 'megacmd' 'namebench' 'wps-office' 'wps-office-extension-french-dictionary')
 source=(https://github.com/lievin-christopher/4rch/archive/master.zip)
 sha512sums=('SKIP')
-backup=("$HOME/.xsession" "$HOME/.xinitrc" "$HOME/.Xdefaults")
+backup=("~/.xsession" "~/.xinitrc" "~/.Xdefaults")
 
 package() {
   ls $srcdir/4rch-master
   mkdir -p $pkgdir$HOME/
+  mkdir -p $pkgdir/etc
   chmod 700 $pkgdir$HOME/
   # Install config files and directories
   rsync -av $srcdir/4rch-master/.config $pkgdir$HOME/
@@ -48,8 +49,11 @@ package() {
   dialog --create-rc $pkgdir$HOME/.dialogrc
   dialog --create-rc $pkgdir/etc/dialogrc
   chown -R $USER:users $pkgdir$HOME
-  systemctl enable mpd.service
-  systemctl enable mpd.socket
-  systemctl enable lxc-net.service
-  systemctl enable dhcpcd.service
+}
+
+post_install() {
+	systemctl enable mpd.service
+	systemctl enable mpd.socket
+	systemctl enable lxc-net.service
+	systemctl enable dhcpcd.service
 }
