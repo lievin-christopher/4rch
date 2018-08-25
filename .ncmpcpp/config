@@ -1,6 +1,6 @@
 ncmpcpp_directory = ~/.ncmpcpp
-lyrics_directory = ~/.lyrics
-mpd_music_dir = ~/Musique
+lyrics_directory = /opt/mpd/lyrics
+mpd_music_dir = ~/Music
  playlist_disable_highlight_delay = "0"  
  playlist_display_mode = "columns"  
  browser_display_mode = "columns"  
