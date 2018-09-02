@@ -1,19 +1,22 @@
 pkgname=4rch
-pkgver=0.5
+pkgver=0.6
 pkgrel=1
 pkgdesc="Autoconfig new archlinux installation"
 arch=('x86_64')
-depends=('dnsmasq' 'w3m' 'wpa_supplicant' 'zsh' 'oh-my-zsh-git' 'mpd' 'task' 'ffmpeg' 'git' 'htop' 'ldm' 'micro' 'ncmpcpp' 'openssl' 'ranger' 'rsync' 'screen')
+depends=('openssh' 'openvpn' 'dnsmasq' 'wpa_supplicant' 'zsh' 'oh-my-zsh-git' 'task' 'git' 'htop' 'ldm' 'micro' 'openssl' 'ranger' 'rsync' 'screen')
 # Base
 depends=('linux-hardened' 'linux-hardened-headers' 'linux-hardened-docs' 'grub' 'python')
 # UI
-depends=('xorg-xbacklight' 'i3lock-color-git' 'scrot' 'python-requests' 'xorg-xrandr' 'polybar' 'dialog' 'redshift-minimal' 'dmenu2' 'feh' 'i3-gaps' 'i3blocks')
+depends+=('alsa-utils' 'xorg-xbacklight' 'i3lock-color-git' 'scrot' 'python-requests' 'xorg-xrandr' 'polybar' 'dialog' 'redshift-minimal' 'dmenu2' 'feh' 'i3-gaps' 'i3blocks')
 # Fonts
 depends+=('noto-fonts-cjk' 'otf-font-awesome-4' 'ttf-font-awesome' 'ttf-hack' 'ttf-material-design-icons')
 # Virtualisation
-depends=('qemu' 'lxc' 'arch-install-scripts')
+depends+=('qemu' 'lxc' 'arch-install-scripts')
 # GUI Apps
-depends=('vlc' 'p7zip' 'p7zip-gui' 'ranger' 'rxvt-unicode-pixbuf' 'rxvt-unicode-terminfo' 'urxvt-perls' 'firefox-developer-edition')
+depends+=('filezilla' 'vlc' 'p7zip' 'p7zip-gui' 'ranger' 'rxvt-unicode-pixbuf' 'rxvt-unicode-terminfo' 'urxvt-perls' 'firefox-developer-edition')
+# MULTIMEDIA
+depends+=('w3m' 'mpd' 'ffmpeg' 'ncmpcpp')
+
 optdepends=('gtop' 'krita' 'megacmd' 'namebench' 'wps-office' 'wps-office-extension-french-dictionary')
 source=(https://github.com/lievin-christopher/4rch/archive/master.zip)
 sha512sums=('SKIP')
@@ -52,6 +55,7 @@ package() {
 }
 
 post_install() {
+	chown mpd /etc/mpd.conf
 	systemctl enable mpd.service
 	systemctl enable mpd.socket
 	systemctl enable lxc-net.service

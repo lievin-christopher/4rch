@@ -192,16 +192,16 @@ format-discharging = <ramp-capacity> <label-discharging>
 format-full-prefix-foreground = ${colors.color7}
 ;format-full-underline = ${self.format-charging-underline}
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
+ramp-capacity-0 = %{F#bf616a}
+ramp-capacity-1 = %{F#9285FF}
+ramp-capacity-2 = %{F#ebbe65}
+ramp-capacity-3 = %{F#02c9ff}
+ramp-capacity-4 = %{F#60b48a}
 ramp-capacity-foreground = ${colors.color7}
 
-;animation-charging-0 = 
-;animation-charging-1 = 
-;animation-charging-2 = 
+animation-charging-0 = %{F#60b48a}
+animation-charging-1 = %{F#bf616a}
+animation-charging-2 = %{F#02c9ff}
 animation-charging-foreground = ${colors.color7}
 animation-charging-framerate = 750
 
