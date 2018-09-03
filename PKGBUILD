@@ -1,5 +1,5 @@
 pkgname=4rch
-pkgver=0.6
+pkgver=0.7
 pkgrel=1
 pkgdesc="Autoconfig new archlinux installation"
 arch=('x86_64')
@@ -20,7 +20,6 @@ depends+=('w3m' 'mpd' 'ffmpeg' 'ncmpcpp')
 optdepends=('gtop' 'krita' 'megacmd' 'namebench' 'wps-office' 'wps-office-extension-french-dictionary')
 source=(https://github.com/lievin-christopher/4rch/archive/master.zip)
 sha512sums=('SKIP')
-backup=("~/.xsession" "~/.xinitrc" "~/.Xdefaults")
 
 package() {
   ls $srcdir/4rch-master
@@ -34,8 +33,6 @@ package() {
   rsync -av $srcdir/4rch-master/.i3 $pkgdir$HOME/
   chmod 700 $pkgdir$HOME/.i3
   ## mpd + ncmpcpp
-  echo "music_directory		'$HOME/Music'\n" >  $pkgdir/etc/mpd.conf
-  cat $srcdir/4rch-master/mpd.conf >>  $pkgdir/etc/mpd.conf
   mkdir -p $pkgdir/opt/mpd/playlists
   touch $pkgdir/opt/mpd/mpd.log $pkgdir/opt/mpd/mpd.db
   mkdir -p $pkgdir/opt/mpd/lyrics
@@ -55,6 +52,8 @@ package() {
 }
 
 post_install() {
+	echo "music_directory		'$HOME/Music'\n" >  $pkgdir/etc/mpd.conf
+	cat $srcdir/4rch-master/mpd.conf >>  $pkgdir/etc/mpd.conf
 	chown mpd /etc/mpd.conf
 	systemctl enable mpd.service
 	systemctl enable mpd.socket
