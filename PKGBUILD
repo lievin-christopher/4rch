@@ -1,11 +1,11 @@
 pkgname=4rch
-pkgver=0.7
+pkgver=0.8
 pkgrel=1
 pkgdesc="Autoconfig new archlinux installation"
 arch=('x86_64')
 depends=('openssh' 'openvpn' 'dnsmasq' 'wpa_supplicant' 'zsh' 'oh-my-zsh-git' 'task' 'git' 'htop' 'ldm' 'micro' 'openssl' 'ranger' 'rsync' 'screen')
 # Base
-depends=('linux-hardened' 'linux-hardened-headers' 'linux-hardened-docs' 'grub' 'python')
+depends+=('linux-hardened' 'linux-hardened-headers' 'linux-hardened-docs' 'grub' 'python')
 # UI
 depends+=('alsa-utils' 'xorg-xbacklight' 'i3lock-color-git' 'scrot' 'python-requests' 'xorg-xrandr' 'polybar' 'dialog' 'redshift-minimal' 'dmenu2' 'feh' 'i3-gaps' 'i3blocks')
 # Fonts
@@ -52,9 +52,11 @@ package() {
 }
 
 post_install() {
-	echo "music_directory		'$HOME/Music'\n" >  $pkgdir/etc/mpd.conf
+	echo -en "music_directory " > $pkgdir/etc/mpd.conf
+	echo "$HOME/Music" >>  $pkgdir/etc/mpd.conf
 	cat $srcdir/4rch-master/mpd.conf >>  $pkgdir/etc/mpd.conf
 	chown mpd /etc/mpd.conf
+	chown -R mpd /opt/mpd 
 	systemctl enable mpd.service
 	systemctl enable mpd.socket
 	systemctl enable lxc-net.service

@@ -70,7 +70,7 @@ font-3 = "Font Awesome 5 Brands:pixelsize=10;2"
 
 modules-left = i3
 modules-center = date
-modules-right = weather cpu memory temperature volume openvpn wlan eth battery powermenu
+modules-right = weather cpu memory temperature volume openvpn wlan wlan2 eth eth2 battery powermenu
 
 tray-position = right
 tray-padding = 2
@@ -150,9 +150,44 @@ ramp-signal-3 = 
 ramp-signal-4 = 
 ramp-signal-foreground = ${colors.color2}
 
+[module/wlan2]
+type = internal/network
+interface = ${env:WIRELESS2}
+interval = 3.0
+
+format-connected = <ramp-signal><label-connected>
+;format-connected-underline = #5e468c
+;format-disconnected-underline = ${self.format-connected-underline}
+
+label-connected = %{A:urxvt -T "wifi_menu" -e sudo wifi-menu:} %{F#02c9ff}%downspeed%%{F-} %{F#9285FF}%upspeed%%{F-}%{A}
+label-connected-foreground = ${colors.color7}
+label-disconnected = %{A:urxvt -T "wifi_menu" -e sudo wifi-menu:}%{A}
+label-disconnected-foreground = ${colors.color1}
+format-connected-alt = 12
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-foreground = ${colors.color2}
+
+
 [module/eth]
 type = internal/network
 interface = ${env:WIRED:eno1}
+interval = 3.0
+
+format-connected-prefix = "%{F#60b48a} %{F-}"
+label-connected = %{F#02c9ff} %downspeed%%{F-} %{F#9285FF}%upspeed%
+label-connected-foreground = ${colors.color7}
+
+label-disconnected = 
+label-disconnected-foreground = ${colors.color1}
+
+[module/eth2]
+type = internal/network
+interface = ${env:WIRED2:eno1}
 interval = 3.0
 
 format-connected-prefix = "%{F#60b48a} %{F-}"
