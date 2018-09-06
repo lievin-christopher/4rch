@@ -1,5 +1,5 @@
 pkgname=4rch
-pkgver=0.8
+pkgver=0.9
 pkgrel=1
 pkgdesc="Autoconfig new archlinux installation"
 arch=('x86_64')
@@ -13,7 +13,7 @@ depends+=('noto-fonts-cjk' 'otf-font-awesome-4' 'ttf-font-awesome' 'ttf-hack' 't
 # Virtualisation
 depends+=('qemu' 'lxc' 'arch-install-scripts')
 # GUI Apps
-depends+=('filezilla' 'vlc' 'p7zip' 'p7zip-gui' 'ranger' 'rxvt-unicode-pixbuf' 'rxvt-unicode-terminfo' 'urxvt-perls' 'firefox-developer-edition')
+depends+=('android-file-transfer' 'filezilla' 'vlc' 'p7zip' 'p7zip-gui' 'ranger' 'rxvt-unicode-pixbuf' 'rxvt-unicode-terminfo' 'urxvt-perls' 'firefox-developer-edition')
 # MULTIMEDIA
 depends+=('w3m' 'mpd' 'ffmpeg' 'ncmpcpp')
 
@@ -49,6 +49,7 @@ package() {
   dialog --create-rc $pkgdir$HOME/.dialogrc
   dialog --create-rc $pkgdir/etc/dialogrc
   chown -R $USER:users $pkgdir$HOME
+  cat $srcdir/4rch-master/taskrc >> $HOME/.taskrc
 }
 
 post_install() {
@@ -56,7 +57,7 @@ post_install() {
 	echo "$HOME/Music" >>  $pkgdir/etc/mpd.conf
 	cat $srcdir/4rch-master/mpd.conf >>  $pkgdir/etc/mpd.conf
 	chown mpd /etc/mpd.conf
-	chown -R mpd /opt/mpd 
+	chown -R mpd /opt/mpd
 	systemctl enable mpd.service
 	systemctl enable mpd.socket
 	systemctl enable lxc-net.service

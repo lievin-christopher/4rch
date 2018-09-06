@@ -1,0 +1,6 @@
+weekstart=Monday
+color.calendar.today=bold magenta
+color.calendar.holiday=bold bright green
+color.calendar.due=bold blue
+color.calendar.due.today=bold red
+color.calendar.overdue=bright white on red
