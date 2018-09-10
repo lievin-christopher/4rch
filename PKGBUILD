@@ -7,7 +7,7 @@ depends=('openssh' 'openvpn' 'dnsmasq' 'wpa_supplicant' 'zsh' 'oh-my-zsh-git' 't
 # Base
 depends+=('linux-hardened' 'linux-hardened-headers' 'linux-hardened-docs' 'grub' 'python')
 # UI
-depends+=('alsa-utils' 'xorg-xbacklight' 'i3lock-color-git' 'scrot' 'python-requests' 'xorg-xrandr' 'polybar' 'dialog' 'redshift-minimal' 'dmenu2' 'feh' 'i3-gaps' 'i3blocks')
+depends+=('xorg-xinit' 'alsa-utils' 'xorg-xbacklight' 'i3lock-color-git' 'scrot' 'python-requests' 'xorg-xrandr' 'polybar' 'dialog' 'redshift-minimal' 'dmenu2' 'feh' 'i3-gaps' 'i3blocks')
 # Fonts
 depends+=('noto-fonts-cjk' 'otf-font-awesome-4' 'ttf-font-awesome' 'ttf-hack' 'ttf-material-design-icons')
 # Virtualisation
