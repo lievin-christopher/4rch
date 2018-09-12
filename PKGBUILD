@@ -50,6 +50,7 @@ package() {
   dialog --create-rc $pkgdir/etc/dialogrc
   chown -R $USER:users $pkgdir$HOME
   cat $srcdir/4rch-master/taskrc >> $HOME/.taskrc
+  mkdir -p $pkgdir/etc/X11/xorg.conf.d/
   cp $srcdir/4rch-master/00-keyboard.conf $pkgdir/etc/X11/xorg.conf.d/00-keyboard.conf
   }
 
