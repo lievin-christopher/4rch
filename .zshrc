@@ -1,5 +1,5 @@
 export PATH=.:$HOME/bin:/usr/local/bin:$PATH
-export ZSH=~/.oh-my-zsh
+export ZSH=/usr/share/oh-my-zsh
 export ZSH_THEME="rkj-repos"
 export HIST_STAMPS="yyyy-mm-dd"
 export LANG="fr_FR.UTF-8"

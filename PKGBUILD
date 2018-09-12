@@ -7,7 +7,7 @@ depends=('openssh' 'openvpn' 'dnsmasq' 'wpa_supplicant' 'zsh' 'oh-my-zsh-git' 't
 # Base
 depends+=('linux-hardened' 'linux-hardened-headers' 'linux-hardened-docs' 'grub' 'python')
 # UI
-depends+=('xorg-xinit' 'alsa-utils' 'xorg-xbacklight' 'i3lock-color-git' 'scrot' 'python-requests' 'xorg-xrandr' 'polybar' 'dialog' 'redshift-minimal' 'dmenu2' 'feh' 'i3-gaps' 'i3blocks')
+depends+=('screenfetch' 'xorg-xhost' 'xorg-xinit' 'alsa-utils' 'xorg-xbacklight' 'i3lock-color-git' 'scrot' 'python-requests' 'xorg-xrandr' 'polybar' 'dialog' 'redshift-minimal' 'dmenu2' 'feh' 'i3-gaps' 'i3blocks')
 # Fonts
 depends+=('noto-fonts-cjk' 'otf-font-awesome-4' 'ttf-font-awesome' 'ttf-hack' 'ttf-material-design-icons')
 # Virtualisation
@@ -50,7 +50,8 @@ package() {
   dialog --create-rc $pkgdir/etc/dialogrc
   chown -R $USER:users $pkgdir$HOME
   cat $srcdir/4rch-master/taskrc >> $HOME/.taskrc
-}
+  cp $srcdir/4rch-master/00-keyboard.conf $pkgdir/etc/X11/xorg.conf.d/00-keyboard.conf
+  }
 
 post_install() {
 	echo -en "music_directory " > $pkgdir/etc/mpd.conf
