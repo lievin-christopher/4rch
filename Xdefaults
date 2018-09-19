@@ -29,7 +29,7 @@ URxvt.keysym.Control-0x2b: perl:font-size:increase
 URxvt.keysym.Control-0x2d: perl:font-size:decrease
 
 ! black
-URxvt.color0:    #bfbfbf
+URxvt.color0:    rgba:0064/0061/0046/3333
 URxvt.color8:    #709080
 
 ! red

@@ -3,9 +3,12 @@ pkgver=0.9
 pkgrel=1
 pkgdesc="Autoconfig new archlinux installation"
 arch=('x86_64')
-depends=('openssh' 'openvpn' 'dnsmasq' 'wpa_supplicant' 'zsh' 'oh-my-zsh-git' 'task' 'git' 'htop' 'ldm' 'micro' 'openssl' 'ranger' 'rsync' 'screen')
 # Base
-depends+=('linux-hardened' 'linux-hardened-headers' 'linux-hardened-docs' 'grub' 'python')
+depends=('linux-hardened' 'linux-hardened-headers' 'linux-hardened-docs' 'grub' 'python')
+# Network
+depends+=('gnu-netcat' 'openssh' 'openvpn' 'dnsmasq' 'wpa_supplicant' 'openssl')
+# CLI
+depends+=('zsh' 'oh-my-zsh-git' 'task' 'git' 'htop' 'ldm' 'micro'  'ranger' 'rsync' 'screen')
 # UI
 depends+=('screenfetch' 'xorg-xhost' 'xorg-xinit' 'alsa-utils' 'xorg-xbacklight' 'i3lock-color-git' 'scrot' 'python-requests' 'xorg-xrandr' 'polybar' 'dialog' 'redshift-minimal' 'dmenu2' 'feh' 'i3-gaps' 'i3blocks')
 # Fonts
@@ -14,7 +17,7 @@ depends+=('noto-fonts-cjk' 'otf-font-awesome-4' 'ttf-font-awesome' 'ttf-hack' 't
 depends+=('qemu' 'lxc' 'arch-install-scripts')
 # GUI Apps
 depends+=('android-file-transfer' 'filezilla' 'vlc' 'p7zip' 'p7zip-gui' 'ranger' 'rxvt-unicode-pixbuf' 'rxvt-unicode-terminfo' 'urxvt-perls' 'firefox-developer-edition')
-# MULTIMEDIA
+# Multimedia
 depends+=('w3m' 'mpd' 'ffmpeg' 'ncmpcpp')
 
 optdepends=('gtop' 'krita' 'megacmd' 'namebench' 'wps-office' 'wps-office-extension-french-dictionary')
