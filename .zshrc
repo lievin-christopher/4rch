@@ -5,9 +5,10 @@ export HIST_STAMPS="yyyy-mm-dd"
 export LANG="fr_FR.UTF-8"
 export SHELL="zsh"
 export MONITOR=$(polybar --list-monitors 2> /dev/null | cut -f1 -d':')
-export WIRELESS=$(ip link | cut -f2 -d':' | grep wl | tr -d ' ')
-export WIRED=$(ip link | cut -f2 -d':' | grep en | tr -d ' ')
-
+export WIRELESS=$(ip link | cut -f2 -d':' | grep wl | tr -d ' ' | head -n 1)
+export WIRELESS2=$(ip link | cut -f2 -d':' | grep wl | tr -d ' ' | tail -n 1)
+export WIRED=$(ip link | cut -f2 -d':' | grep en | tr -d ' ' | head -n 1)
+export WIRED2=$(ip link | cut -f2 -d':' | grep en | tr -d ' ' | tail -n 1)
 plugins=(git)
 source $ZSH/oh-my-zsh.sh
 

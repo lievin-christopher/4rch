@@ -20,8 +20,8 @@ URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select,font-size
 URxvt.url-select.launcher: firefox
 URxvt.url-select.underline: true
 URxvt.iso14755 : false
-URxvt.keysym.Control-Shift-V:eval:paste_cliboard
-URxvt.keysym.Control-Shift-C:eval:selection_to_clipboard
+URxvt.keysym.C-S-0x43: eval:selection_to_clipboard
+URxvt.keysym.C-S-0x56: eval:paste_clipboard
 URxvt.keysym.M-u:           perl:url-select:select_next
 URxvt.keysym.M-Escape:      perl:keyboard-select:activate
 URxvt.keysym.M-s:           perl:keyboard-select:search
