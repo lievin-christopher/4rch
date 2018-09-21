@@ -63,10 +63,7 @@ padding-right = 1
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = Hack:pixelsize=8;2
-font-1 = "Material Icons:pixelsize=12;4"
-font-2 = "Font Awesome 5 Free:style=Solid:pixelsize=10;2"
-font-3 = "Font Awesome 5 Brands:pixelsize=10;2"
+font-0 = Hack Nerd Font:pixelsize=8;2
 
 modules-left = i3
 modules-center = date
@@ -82,7 +79,7 @@ type = internal/i3
 ; ws-icon-[0-9]+ = label;icon
 ws-icon-0 = 1;
 ws-icon-1 = 2;
-ws-icon-2 = 3;3
+ws-icon-2 = 3;嗢
 ws-icon-3 = 4;4
 ws-icon-4 = 5;5
 ws-icon-5 = 6;6
@@ -113,7 +110,7 @@ label-visible-padding = 1
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = %{A:urxvt -T "__monitor__" -e htop:} %{A}
+format-prefix = %{A:urxvt -T "__monitor__" -e htop:} %{A}
 format-prefix-foreground = ${colors.color4}
 ;format-underline = #f90000
 label =  %{A:urxvt -T "__monitor__" -e htop:}%percentage%%%{A}
@@ -234,9 +231,9 @@ ramp-capacity-3 = %{F#02c9ff}
 ramp-capacity-4 = %{F#60b48a}
 ramp-capacity-foreground = ${colors.color7}
 
-animation-charging-0 = %{F#60b48a}
-animation-charging-1 = %{F#bf616a}
-animation-charging-2 = %{F#02c9ff}
+animation-charging-0 = %{F#60b48a}
+animation-charging-1 = %{F#bf616a}
+animation-charging-2 = %{F#02c9ff}
 animation-charging-foreground = ${colors.color7}
 animation-charging-framerate = 750
 
@@ -345,7 +342,7 @@ label-volume = %percentage%%
 ;label-volume-foreground = ${colors.color7}
 
 format-muted-foreground = ${colors.color1}
-label-muted = 
+label-muted = ﱝ 
 
 bar-volume-width = 10
 bar-volume-foreground-0 = ${colors.color2}
@@ -363,11 +360,11 @@ bar-volume-fill-font = 3
 bar-volume-empty = ─
 bar-volume-empty-font = 3
 bar-volume-empty-foreground = ${colors.color7}
-ramp-volume-0 = %{F#bf616a}
-ramp-volume-1 = %{F#60b48a}
-ramp-volume-2 = %{F#60b48a}
-ramp-volume-3 = %{F#02c9ff}
-ramp-volume-4 = %{F#9285FF}
+ramp-volume-0 = %{F#bf616a}奄
+ramp-volume-1 = %{F#60b48a}奔
+ramp-volume-2 = %{F#60b48a}墳
+ramp-volume-3 = %{F#02c9ff}
+ramp-volume-4 = %{F#9285FF}
 
 [module/powermenu]
 type = custom/menu
@@ -377,7 +374,7 @@ format-spacing = 1
 
 label-open = 
 label-open-foreground = ${colors.color9}
-label-close =  cancel
+label-close =  cancel
 label-close-foreground = ${colors.color9}
 label-separator = |
 label-separator-foreground = ${colors.color9}
