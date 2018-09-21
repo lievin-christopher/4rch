@@ -16,7 +16,7 @@ depends+=('noto-fonts-cjk' 'otf-font-awesome-4' 'ttf-font-awesome' 'nerd-fonts-h
 # Virtualisation
 depends+=('qemu' 'lxc' 'arch-install-scripts')
 # GUI Apps
-depends+=('android-file-transfer' 'filezilla' 'vlc' 'p7zip' 'p7zip-gui' 'ranger' 'rxvt-unicode-intensityfix' 'urxvt-perls' 'firefox-developer-edition')
+depends+=('android-file-transfer' 'filezilla' 'vlc' 'p7zip' 'p7zip-gui' 'ranger' 'urxvt-perls' 'firefox-developer-edition')
 # Multimedia
 depends+=('w3m' 'mpd' 'ffmpeg' 'ncmpcpp')
 
