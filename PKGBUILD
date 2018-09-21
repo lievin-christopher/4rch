@@ -12,11 +12,11 @@ depends+=('zsh' 'oh-my-zsh-git' 'task' 'git' 'htop' 'ldm' 'micro'  'ranger' 'rsy
 # UI
 depends+=('screenfetch' 'xorg-xhost' 'xorg-xinit' 'alsa-utils' 'xorg-xbacklight' 'i3lock-color-git' 'scrot' 'python-requests' 'xorg-xrandr' 'polybar' 'dialog' 'redshift-minimal' 'dmenu2' 'feh' 'i3-gaps' 'i3blocks')
 # Fonts
-depends+=('noto-fonts-cjk' 'otf-font-awesome-4' 'ttf-font-awesome' 'ttf-hack' 'ttf-material-design-icons')
+depends+=('noto-fonts-cjk' 'otf-font-awesome-4' 'ttf-font-awesome' 'nerd-fonts-hack' 'ttf-material-design-icons')
 # Virtualisation
 depends+=('qemu' 'lxc' 'arch-install-scripts')
 # GUI Apps
-depends+=('android-file-transfer' 'filezilla' 'vlc' 'p7zip' 'p7zip-gui' 'ranger' 'rxvt-unicode-pixbuf' 'rxvt-unicode-terminfo' 'urxvt-perls' 'firefox-developer-edition')
+depends+=('android-file-transfer' 'filezilla' 'vlc' 'p7zip' 'p7zip-gui' 'ranger' 'rxvt-unicode-intensityfix' 'urxvt-perls' 'firefox-developer-edition')
 # Multimedia
 depends+=('w3m' 'mpd' 'ffmpeg' 'ncmpcpp')
 

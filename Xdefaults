@@ -9,7 +9,7 @@ URxvt.geometry: 108x25
 URxvt.transparent: true
 URxvt.shading: 20
 !! Font prefferenes
-urxvt.font: xft:Hack:pixelsize=14, xft:DejaVu Serif:size=12, xft:Font Awersome:size=9
+urxvt.font: xft:Hack Nerd Font:pixelsize=10, xft:DejaVu Serif:size=12, xft:Font Awersome:size=9
 urxvt.boldFont: xft:Hack:pixelsize=14:weight=bold
 urxvt.letterSpace: -1
 !! Larger history limit
