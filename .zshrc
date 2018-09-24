@@ -6,9 +6,9 @@ export LANG="fr_FR.UTF-8"
 export SHELL="zsh"
 export MONITOR=$(polybar --list-monitors 2> /dev/null | cut -f1 -d':')
 export WIRELESS=$(ip link | cut -f2 -d':' | grep wl | tr -d ' ' | head -n 1)
-export WIRELESS2=$(ip link | cut -f2 -d':' | grep wl | tr -d ' ' | tail -n 1)
+export WIRELESS2=$(ip link | cut -f2 -d':' | grep wl | tr -d ' ' | tail -n 1 | grep -v $WIRELESS)
 export WIRED=$(ip link | cut -f2 -d':' | grep en | tr -d ' ' | head -n 1)
-export WIRED2=$(ip link | cut -f2 -d':' | grep en | tr -d ' ' | tail -n 1)
+export WIRED2=$(ip link | cut -f2 -d':' | grep en | tr -d ' ' | tail -n 1 | grep -v $WIRED)
 plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
@@ -24,5 +24,5 @@ fi
 #aliases
 alias music='ncmpcpp'
 alias firefox='firefox-developer-edition'
-
+alias man='/bin/man $@ 2> /dev/null || $HOME/.local/bin/man $@ 2>/dev/null'
 screenfetch

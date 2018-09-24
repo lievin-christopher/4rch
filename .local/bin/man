@@ -1,0 +1,2 @@
+#!/bin/bash
+/usr/lib/man-db/zsoelim $(find /usr/share/man -name "$1.*" | head -n 1) | nroff -mandoc -rLL=265n -rLT=265n -Tutf8 | less

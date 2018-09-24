@@ -1,6 +1,6 @@
 pkgname=4rch
 pkgver=0.9
-pkgrel=3
+pkgrel=4
 pkgdesc="Autoconfig new archlinux installation"
 arch=('x86_64')
 # Base
@@ -30,6 +30,7 @@ package() {
   mkdir -p $pkgdir/etc
   chmod 700 $pkgdir$HOME/
   # Install config files and directories
+  rsync -av $srcdir/4rch-master/.local $pkgdir$HOME/
   rsync -av $srcdir/4rch-master/.config $pkgdir$HOME/
   chmod 700 $pkgdir$HOME/.config
   ## I3

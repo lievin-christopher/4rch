@@ -136,7 +136,7 @@ format-connected = <ramp-signal><label-connected>
 
 label-connected = %{A:urxvt -T "__wifi_menu__" -e sudo wifi-menu:} %{F#02c9ff}%downspeed%%{F-} %{F#9285FF}%upspeed%%{F-}%{A}
 label-connected-foreground = ${colors.color7}
-label-disconnected = %{A:urxvt -T "__wifi_menu__" -e sudo wifi-menu:}%{A}
+label-disconnected = %{A:urxvt -T "__wifi_menu__" -e sudo wifi-menu:}睊%{A}
 label-disconnected-foreground = ${colors.color1}
 format-connected-alt = 12
 
@@ -158,7 +158,7 @@ format-connected = <ramp-signal><label-connected>
 
 label-connected = %{A:urxvt -T "__wifi_menu__" -e sudo wifi-menu:} %{F#02c9ff}%downspeed%%{F-} %{F#9285FF}%upspeed%%{F-}%{A}
 label-connected-foreground = ${colors.color7}
-label-disconnected = %{A:urxvt -T "__wifi_menu__" -e sudo wifi-menu:}%{A}
+label-disconnected = %{A:urxvt -T "__wifi_menu__" -e sudo wifi-menu:}睊%{A}
 label-disconnected-foreground = ${colors.color1}
 format-connected-alt = 12
 
