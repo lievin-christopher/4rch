@@ -1,2 +1,17 @@
 #!/bin/bash
-/usr/lib/man-db/zsoelim $(find /usr/share/man -name "$1.*" | head -n 1) | nroff -mandoc -rLL=265n -rLT=265n -Tutf8 | less
+num=$1
+if [ ! -z "${num##*[!0-9]*}" ]; then
+    manpage=$(find /usr/share/man -name "$2.$1.*" | head -n 1)
+    if [ ! -z "$manpage" ]; then
+        /usr/lib/man-db/zsoelim $manpage | nroff -mandoc -rLL=265n -rLT=265n -Tutf8 | less
+    else
+        echo "Aucune entrée de manuel pour grep en section $1"
+    fi
+else
+    manpage=$(find /usr/share/man -name "$1.1.*" | head -n 1)
+    if [ ! -z "$manpage" ]; then
+        /usr/lib/man-db/zsoelim $manpage | nroff -mandoc -rLL=265n -rLT=265n -Tutf8 | less
+    else
+        echo "Aucune entrée de manuel pour grep en section 1"
+    fi
+fi
