@@ -10,7 +10,7 @@ URxvt.transparent: true
 URxvt.shading: 20
 !! Font prefferenes
 urxvt.font: xft:Hack Nerd Font:pixelsize=13
-urxvt.boldFont: xft:Hack:pixelsize=14:weight=bold
+urxvt.boldFont: xft:Hack Nerd Font:pixelsize=14:weight=bold
 urxvt.letterSpace: -1
 !! Larger history limit
 urxvt.saveLines: 1000000
