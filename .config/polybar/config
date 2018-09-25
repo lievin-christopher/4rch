@@ -207,7 +207,7 @@ time-alt = %H:%M
 ; format-prefix = 
 format-prefix-foreground = ${colors.color7}
 ;format-underline = #0a6cf5
-label = %{A:urxvt -T "__calendar__" -e zsh -c "task calendar && task list || read":}%{F#D8DEE9}────[%{F-} %{F#02c9ff}%date%%{F-}%{F#bf616a} %time%%{F-} %{F#D8DEE9}]────%{F-}%{A}
+label = %{A:urxvt -T "__calendar__" -e zsh -c "task calendar && task list; read":}%{F#D8DEE9}────[%{F-} %{F#02c9ff}%date%%{F-}%{F#bf616a} %time%%{F-} %{F#D8DEE9}]────%{F-}%{A}
 
 [module/battery]
 type = internal/battery
