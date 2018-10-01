@@ -1,12 +1,12 @@
 pkgname=4rch
 pkgver=0.9
-pkgrel=4
+pkgrel=5
 pkgdesc="Autoconfig new archlinux installation"
 arch=('x86_64')
 # Base
-depends=('linux-hardened' 'linux-hardened-headers' 'linux-hardened-docs' 'grub' 'python')
+depends=('linux-hardened' 'linux-hardened-headers' 'linux-hardened-docs' 'grub' 'python' 'exfat-utils' 'ntfs-3g')
 # Network
-depends+=('gnu-netcat' 'openssh' 'openvpn' 'dnsmasq' 'wpa_supplicant' 'openssl')
+depends+=('nmap' 'gnu-netcat' 'openssh' 'openvpn' 'dnsmasq' 'wpa_supplicant' 'openssl')
 # CLI
 depends+=('zsh' 'oh-my-zsh-git' 'task' 'git' 'htop' 'ldm' 'micro'  'ranger' 'rsync' 'screen')
 # UI
@@ -16,10 +16,11 @@ depends+=('noto-fonts-cjk' 'nerd-fonts-hack')
 # Virtualisation
 depends+=('qemu' 'lxc' 'arch-install-scripts')
 # GUI Apps
-depends+=('android-file-transfer' 'filezilla' 'vlc' 'p7zip' 'p7zip-gui' 'ranger' 'rxvt-unicode-wcwidthcallback' 'rxvt-unicode-terminfo'  'urxvt-perls' 'firefox-developer-edition')
+depends+=('filezilla' 'vlc' 'p7zip' 'p7zip-gui' 'ranger' 'rxvt-unicode-wcwidthcallback' 'rxvt-unicode-terminfo'  'urxvt-perls' 'firefox-developer-edition')
 # Multimedia
 depends+=('w3m' 'mpd' 'ffmpeg' 'ncmpcpp')
-
+# Android
+depends+=('android-file-transfer' 'android-udev' 'android-tools')
 optdepends=('gtop' 'krita' 'megacmd' 'namebench' 'wps-office' 'wps-office-extension-french-dictionary')
 source=(https://github.com/lievin-christopher/4rch/archive/master.zip)
 sha512sums=('SKIP')
@@ -50,8 +51,6 @@ package() {
   echo 'exec sudo ip link set down $WIRELESS' >> $pkgdir$HOME/.xsession
   echo "exec sudo ldm -d -u $USER" >> $pkgdir$HOME/.xsession
   chmod u+x $pkgdir$HOME/.xsession
-  dialog --create-rc $pkgdir$HOME/.dialogrc
-  dialog --create-rc $pkgdir/etc/dialogrc
   chown -R $USER:users $pkgdir$HOME
   cat $srcdir/4rch-master/taskrc >> $HOME/.taskrc
   mkdir -p $pkgdir/etc/X11/xorg.conf.d/
