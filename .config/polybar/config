@@ -172,7 +172,7 @@ ramp-signal-foreground = ${colors.color2}
 
 [module/eth]
 type = internal/network
-interface = ${env:WIRED:eno1}
+interface = ${env:WIRED}
 interval = 3.0
 
 format-connected-prefix = "%{F#60b48a} %{F-}"
@@ -184,7 +184,7 @@ label-disconnected-foreground = ${colors.color1}
 
 [module/eth2]
 type = internal/network
-interface = ${env:WIRED2:eno1}
+interface = ${env:WIRED2}
 interval = 3.0
 
 format-connected-prefix = "%{F#60b48a} %{F-}"
