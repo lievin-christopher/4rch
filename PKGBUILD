@@ -1,6 +1,6 @@
 pkgname=4rch
 pkgver=0.9
-pkgrel=5
+pkgrel=6
 pkgdesc="Autoconfig new archlinux installation"
 arch=('x86_64')
 # Base
@@ -10,7 +10,7 @@ depends+=('nmap' 'gnu-netcat' 'openssh' 'openvpn' 'dnsmasq' 'wpa_supplicant' 'op
 # CLI
 depends+=('zsh' 'oh-my-zsh-git' 'task' 'git' 'htop' 'ldm' 'micro'  'ranger' 'rsync' 'screen')
 # UI
-depends+=('screenfetch' 'xorg-xhost' 'xorg-xinit' 'alsa-utils' 'xorg-xbacklight' 'i3lock-color-git' 'scrot' 'python-requests' 'xorg-xrandr' 'polybar' 'dialog' 'redshift-minimal' 'dmenu2' 'feh' 'i3-gaps' 'i3blocks')
+depends+=('screenfetch' 'xorg-xhost' 'xorg-xinit' 'alsa-utils' 'i3lock-color-git' 'scrot' 'python-requests' 'xorg-xrandr' 'polybar' 'dialog' 'redshift-minimal' 'dmenu2' 'feh' 'i3-gaps' 'i3blocks' 'light-git')
 # Fonts
 depends+=('noto-fonts-cjk' 'nerd-fonts-hack')
 # Virtualisation
