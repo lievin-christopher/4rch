@@ -239,8 +239,8 @@ animation-charging-framerate = 750
 
 [module/temperature]
 type = internal/temperature
-thermal-zone = 0
-warn-temperature = 60
+thermal-zone = 10
+warn-temperature = 80
 
 format = <ramp> <label>
 ;format-underline = #f50a4d
@@ -249,7 +249,6 @@ format-warn = <ramp> <label-warn>
 
 label = %temperature%
 label-warn = %temperature%
-label-warn-foreground = ${colors.color7}
 
 ramp-0 = %{F#76e2ff}
 ramp-1 = %{F#02c9ff}
