@@ -1,6 +1,6 @@
 pkgname=4rch
 pkgver=0.9
-pkgrel=6
+pkgrel=7
 pkgdesc="Autoconfig new archlinux installation"
 arch=('x86_64')
 # Base
@@ -10,7 +10,7 @@ depends+=('nmap' 'gnu-netcat' 'openssh' 'openvpn' 'dnsmasq' 'wpa_supplicant' 'op
 # CLI
 depends+=('zsh' 'oh-my-zsh-git' 'task' 'git' 'htop' 'ldm' 'micro'  'ranger' 'rsync' 'screen')
 # UI
-depends+=('screenfetch' 'xorg-xhost' 'xorg-xinit' 'alsa-utils' 'i3lock-color-git' 'scrot' 'python-requests' 'xorg-xrandr' 'polybar' 'dialog' 'redshift-minimal' 'dmenu2' 'feh' 'i3-gaps' 'i3blocks' 'light-git')
+depends+=('screenfetch' 'xorg-xhost' 'xorg-xinit' 'alsa-utils' 'i3lock-color-git' 'scrot' 'python-requests' 'xorg-xrandr' 'polybar' 'dialog' 'redshift-minimal' 'dmenu2' 'feh' 'i3-gaps' 'i3blocks' 'light-git' 'xorg-server' 'xorg-server-common')
 # Fonts
 depends+=('noto-fonts-cjk' 'nerd-fonts-hack')
 # Virtualisation
@@ -55,6 +55,8 @@ package() {
   cat $srcdir/4rch-master/taskrc >> $HOME/.taskrc
   mkdir -p $pkgdir/etc/X11/xorg.conf.d/
   cp $srcdir/4rch-master/00-keyboard.conf $pkgdir/etc/X11/xorg.conf.d/00-keyboard.conf
+  dialog --create-rc $pkgdir$HOME/.dialogrc
+  dialog --create-rc $pkgdir/etc/dialogrc
   }
 
 post_install() {
