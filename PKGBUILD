@@ -1,6 +1,6 @@
 pkgname=4rch
 pkgver=0.9
-pkgrel=7
+pkgrel=8
 pkgdesc="Autoconfig new archlinux installation"
 arch=('x86_64')
 # Base
