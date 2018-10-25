@@ -65,6 +65,7 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 bindsym --release $mod+s exec scrot
+bindsym --release $mod+Shift+s exec scrot -s
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
