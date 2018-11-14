@@ -66,6 +66,10 @@ post_install() {
     sed --in-place=.pacsave 's/arch.pool.ntp.org/fr.pool.ntp.org iburst/'
 	chown mpd /etc/mpd.conf
 	chown -R mpd /opt/mpd
+	cp $srcdir/4rch-master/bepo.gkb /boot/grub/bepo.gkb
+	echo "insmod keylayouts" >> /etc/grub.d/40_custom
+	echo "keymap /boot/grub/bepo.gkb" >> /etc/grub.d/40_custom
+	grub-mkconfig -o /boot/grub/grub.cfg
 	systemctl enable mpd.service
 	systemctl enable mpd.socket
 	systemctl enable lxc-net.service
