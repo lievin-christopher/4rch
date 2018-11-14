@@ -6,7 +6,7 @@ arch=('x86_64')
 # Base
 depends=('linux-hardened' 'linux-hardened-headers' 'linux-hardened-docs' 'grub' 'python' 'exfat-utils' 'ntfs-3g')
 # Network
-depends+=('nmap' 'gnu-netcat' 'openssh' 'openvpn' 'dnsmasq' 'wpa_supplicant' 'openssl')
+depends+=('nmap' 'gnu-netcat' 'openssh' 'openvpn' 'dnsmasq' 'wpa_supplicant' 'openssl' 'ntp')
 # CLI
 depends+=('zsh' 'oh-my-zsh-git' 'task' 'git' 'htop' 'ldm' 'micro'  'ranger' 'rsync' 'screen')
 # UI
@@ -63,6 +63,7 @@ post_install() {
 	echo -en "music_directory " > $pkgdir/etc/mpd.conf
 	echo "$HOME/Music" >>  $pkgdir/etc/mpd.conf
 	cat $srcdir/4rch-master/mpd.conf >>  $pkgdir/etc/mpd.conf
+    sed --in-place=.pacsave 's/arch.pool.ntp.org/fr.pool.ntp.org iburst/'
 	chown mpd /etc/mpd.conf
 	chown -R mpd /opt/mpd
 	systemctl enable mpd.service
