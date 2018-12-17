@@ -63,7 +63,7 @@ try:
     if not ico:
         ico = weather.get("weather")[0].get("description")
     temp = weather.get("main").get("temp")
-    if not temp:
+    if temp == None:
         temp = NaN
     status = ""
     if temp < 5.0:
