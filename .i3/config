@@ -137,10 +137,43 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Pulse Audio controls
+mode "workspace" {
+        # switch to workspace
+        bindsym $mod+ampersand workspace a
+        bindsym $mod+eacute workspace b
+        bindsym $mod+quotedbl workspace c
+        bindsym $mod+apostrophe workspace d
+        bindsym $mod+parenleft workspace e
+        bindsym $mod+minus workspace f
+        bindsym $mod+egrave workspace g
+        bindsym $mod+underscore workspace h
+        bindsym $mod+ccedilla workspace i
+        bindsym $mod+agrave workspace j
+        
+        # move focused container to workspace
+        bindsym $mod+Shift+1 move container to workspace a
+        bindsym $mod+Shift+eacute move container to workspace b
+        bindsym $mod+Shift+3 move container to workspace c
+        bindsym $mod+Shift+4 move container to workspace d
+        bindsym $mod+Shift+5 move container to workspace e
+        bindsym $mod+Shift+6 move container to workspace f
+        bindsym $mod+Shift+egrave move container to workspace g
+        bindsym $mod+Shift+8 move container to workspace h
+        bindsym $mod+Shift+ccedilla move container to workspace i
+        bindsym $mod+Shift+agrave move container to workspace j
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+w mode "workspace"
+
+
+# Alsa Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 5%+ unmute #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 5%- unmute #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle # mute sound
+bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle # mute/unmute sound
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec light -A 10 # increase screen brightness
@@ -152,8 +185,14 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
+bindsym XF86WWW exec --no-startup-id firefox-developer-edition
+bindsym XF86Calculator exec --no-startup-id urxvt -e python
+bindsym XF86Explorer exec --no-startup-id firefox-developer-edition
+
 # General
 exec_always --no-startup-id light -N 1
+exec_always --no-startup-id killall compton
+exec_always --no-startup-id compton --backend glx --vsync opengl-swc -CG --no-fading-openclose
 exec_always --no-startup-id feh --bg-fill ~/.i3/back.jpg
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id killall redshift
@@ -162,10 +201,10 @@ smart_borders no_gaps
 gaps outer 2
 gaps inner 5
 for_window [class="^.*"] border pixel 0
-for_window [title="^__calendar__"] floating enable move absolute position center move up 300 px
-for_window [title="^__monitor__"] floating enable move absolute position center move up 300 px move right 500 px
-for_window [title="^__wifi_menu__"] floating enable move absolute position center move up 300 px move right 600 px
-for_window [title="^sxiv .*gif"] floating enable move absolute position center move up 200 px move right 400 px focus_on_window_activation none
+for_window [title="^__calendar__"] floating enable move position center move up 300 px
+for_window [title="^__monitor__"] floating enable move position center move up 300 px move right 500 px
+for_window [title="^__wifi_menu__"] floating enable move position center move up 300 px move right 600 px
+for_window [title="^sxiv .*gif"] floating enable move position center move up 200 px move right 400 px focus_on_window_activation none
 # End General
 
 # Firefox

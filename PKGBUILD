@@ -10,7 +10,7 @@ depends+=('nmap' 'gnu-netcat' 'openssh' 'openvpn' 'dnsmasq' 'wpa_supplicant' 'op
 # CLI
 depends+=('zsh' 'oh-my-zsh-git' 'task' 'git' 'htop' 'ldm' 'micro'  'ranger' 'rsync' 'screen')
 # UI
-depends+=('screenfetch' 'xorg-xhost' 'xorg-xinit' 'alsa-utils' 'i3lock-color-git' 'scrot' 'python-requests' 'xorg-xrandr' 'polybar' 'dialog' 'redshift-minimal' 'dmenu2' 'feh' 'i3-gaps' 'i3blocks' 'light-git' 'xorg-server' 'xorg-server-common')
+depends+=('screenfetch' 'xorg-xhost' 'xorg-xinit' 'alsa-utils' 'i3lock-color-git' 'scrot' 'python-requests' 'xorg-xrandr' 'polybar' 'dialog' 'redshift-minimal' 'dmenu2' 'feh' 'i3-gaps' 'i3blocks' 'light-git' 'xorg-server' 'xorg-server-common' 'compton')
 # Fonts
 depends+=('noto-fonts-cjk' 'nerd-fonts-hack')
 # Virtualisation
@@ -48,8 +48,6 @@ package() {
   cp $srcdir/4rch-master/.zshrc $pkgdir$HOME/.zshrc
   echo "exec i3" > $pkgdir$HOME/.xinitrc
   echo "#!/bin/bash" > $pkgdir$HOME/.xsession
-  echo 'exec sudo ip link set down $WIRELESS' >> $pkgdir$HOME/.xsession
-  echo "exec sudo ldm -d -u $USER" >> $pkgdir$HOME/.xsession
   chmod u+x $pkgdir$HOME/.xsession
   chown -R $USER:users $pkgdir$HOME
   cat $srcdir/4rch-master/taskrc >> $HOME/.taskrc
@@ -73,5 +71,4 @@ post_install() {
 	systemctl enable mpd.service
 	systemctl enable mpd.socket
 	systemctl enable lxc-net.service
-	systemctl enable dhcpcd.service
 }
