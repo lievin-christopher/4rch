@@ -106,6 +106,7 @@ label-urgent-padding = 1
 
 label-visible = %icon%
 label-visible-padding = 1
+index-sort = true
 
 [module/cpu]
 type = internal/cpu

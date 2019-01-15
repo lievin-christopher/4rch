@@ -48,6 +48,8 @@ package() {
   cp $srcdir/4rch-master/.zshrc $pkgdir$HOME/.zshrc
   echo "exec i3" > $pkgdir$HOME/.xinitrc
   echo "#!/bin/bash" > $pkgdir$HOME/.xsession
+  echo '''i3-msg "workspace 2, move workspace to output primary"
+  i3-msg "workspace 3, move workspace to output primary"''' > $pkgdir$HOME/.xsession
   chmod u+x $pkgdir$HOME/.xsession
   chown -R $USER:users $pkgdir$HOME
   cat $srcdir/4rch-master/taskrc >> $HOME/.taskrc
