@@ -10,7 +10,6 @@
 [colors]
 ; black
 color0 = #0f1111
-;color0 = #1D1F21
 color8 = #709080
 ; red
 color1 = #bf616a
@@ -25,14 +24,14 @@ color11 =  #ebbe65
 color4 = #02c9ff
 color12 = #02b9eb
 ; magenta
-color5 = #9285FF
+color5 = #9285ff
 color13 = #9285ff
 ; cyan
 color6 = #76e2ff
 color14 = #c0f2ff
 ; white
 color7 = #dcdccc
-color15 = #9285FF
+color15 = #9285ff
 
 [global/wm]
 margin-top = 0
@@ -67,16 +66,18 @@ font-0 = Hack Nerd Font:pixelsize=8;2
 
 modules-left = i3
 modules-center = date
-modules-right = weather cpu memory temperature volume openvpn wlan wlan2 eth eth2 battery powermenu
+modules-right = weather cpu memory temperature volume openvpn wlan wlan2 eth eth2 backlight battery powermenu
 
 tray-position = right
 tray-padding = 2
 
+[module/title]
+type = internal/xwindow
 
 [module/i3]
 type = internal/i3
 
-; ws-icon-[0-9]+ = label;icon
+;ws-icon-[0-9]+ = label;icon
 ws-icon-0 = 1;
 ws-icon-1 = 2;
 ws-icon-2 = 3;嗢
@@ -88,8 +89,8 @@ ws-icon-7 = 8;8
 ws-icon-8 = 9;9
 ws-icon-9 = 10;10
 ;ws-icon-default = 
-
 ;strip-wsnumbers = true
+index-sort = true
 
 label-focused = %icon%
 label-focused-underline = ${colors.color7}
@@ -106,25 +107,22 @@ label-urgent-padding = 1
 
 label-visible = %icon%
 label-visible-padding = 1
-index-sort = true
 
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = %{A:urxvt -T "__monitor__" -e htop:} %{A}
-format-prefix-foreground = ${colors.color4}
-;format-underline = #f90000
-label =  %{A:urxvt -T "__monitor__" -e htop:}%percentage%%%{A}
-label-foreground = ${colors.color4}
+format-prefix = %{A:urxvt -T "__monitor__" -e htop:} 
+format-prefix-padding-right = 1
+format-foreground = ${colors.color4}
+label = %percentage%%%{A}
 
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = %{A:urxvt -T "__monitor__" -e htop:} %{A}
-format-prefix-foreground = ${colors.color5}
-;format-underline = #4bffdc
-label = %{A:urxvt -T "__monitor__" -e htop:}%percentage_used%%%{A}
-label-foreground = ${colors.color5}
+format-prefix = %{A:urxvt -T "__monitor__" -e htop:} 
+format-prefix-padding-right = 1
+label = %percentage_used%%%{A}
+format-foreground = ${colors.color5}
 
 [module/wlan]
 type = internal/network
@@ -132,14 +130,13 @@ interface = ${env:WIRELESS}
 interval = 3.0
 
 format-connected = <ramp-signal><label-connected>
-;format-connected-underline = #5e468c
-;format-disconnected-underline = ${self.format-connected-underline}
 
-label-connected = %{A:urxvt -T "__wifi_menu__" -e sudo wifi-menu:} %{F#02c9ff}%downspeed%%{F-} %{F#9285FF}%upspeed%%{F-}%{A}
-label-connected-foreground = ${colors.color7}
-label-disconnected = %{A:urxvt -T "__wifi_menu__" -e sudo wifi-menu:}睊%{A}
+format-prefix = %{A:urxvt -T "__wifi_menu__" -e sudo wifi-menu:}
+format-suffix = %{A}
+label-connected = %downspeed% %{F#9285ff}%upspeed%%{F-}
+label-connected-foreground = ${colors.color4}
+label-disconnected = 睊
 label-disconnected-foreground = ${colors.color1}
-format-connected-alt = 12
 
 ramp-signal-0 = 
 ramp-signal-1 = 
@@ -147,68 +144,56 @@ ramp-signal-2 = 
 ramp-signal-3 = 
 ramp-signal-4 = 
 ramp-signal-foreground = ${colors.color2}
+ramp-signal-padding-right = 1
 
 [module/wlan2]
-type = internal/network
+inherit = module/wlan
 interface = ${env:WIRELESS2}
-interval = 3.0
-
-format-connected = <ramp-signal><label-connected>
-;format-connected-underline = #5e468c
-;format-disconnected-underline = ${self.format-connected-underline}
-
-label-connected = %{A:urxvt -T "__wifi_menu__" -e sudo wifi-menu:} %{F#02c9ff}%downspeed%%{F-} %{F#9285FF}%upspeed%%{F-}%{A}
-label-connected-foreground = ${colors.color7}
-label-disconnected = %{A:urxvt -T "__wifi_menu__" -e sudo wifi-menu:}睊%{A}
-label-disconnected-foreground = ${colors.color1}
-format-connected-alt = 12
-
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
-ramp-signal-foreground = ${colors.color2}
-
 
 [module/eth]
 type = internal/network
 interface = ${env:WIRED}
 interval = 3.0
 
-format-connected-prefix = "%{F#60b48a} %{F-}"
-label-connected = %{F#02c9ff} %downspeed%%{F-} %{F#9285FF}%upspeed%
-label-connected-foreground = ${colors.color7}
+format-connected-prefix =  
+format-connected-prefix-padding-right = 1
+format-connected-prefix-foreground = ${colors.color2}
+label-connected = %downspeed% %{F#9285ff}%upspeed%
+label-connected-foreground = ${colors.color4}
 
 label-disconnected = 
 label-disconnected-foreground = ${colors.color1}
 
 [module/eth2]
-type = internal/network
+inherit = module/eth
 interface = ${env:WIRED2}
-interval = 3.0
-
-format-connected-prefix = "%{F#60b48a} %{F-}"
-label-connected = %{F#02c9ff} %downspeed%%{F-} %{F#9285FF}%upspeed%
-label-connected-foreground = ${colors.color7}
-
-label-disconnected = 
-label-disconnected-foreground = ${colors.color1}
 
 [module/date]
 type = internal/date
 interval = 1
 
 date = %a %d %b %Y
-date-alt = %a %d %b %Y
-
+label-foreground = ${colors.color6}
 time = %H:%M:%S
-time-alt = %H:%M
 
-; format-prefix = 
-format-prefix-foreground = ${colors.color7}
-;format-underline = #0a6cf5
-label = %{A:urxvt -T "__calendar__" -e zsh -c "task calendar && task list; read":}%{F#D8DEE9}────[%{F-} %{F#02c9ff}%date%%{F-}%{F#bf616a} %time%%{F-} %{F#D8DEE9}]────%{F-}%{A}
+format-prefix = %{A:urxvt -T "__calendar__" -e zsh -c "task calendar && task list; read":} ────[
+format-suffix = ]────%{A}
+format = <label> 
+label =  %date% %{F#bf616a}%time%
+label-padding = 1
+
+[module/backlight]
+type = internal/backlight
+card = intel_backlight
+format = <ramp><label>
+
+label = %percentage%%
+
+ramp-0 = 🌕
+ramp-1 = 🌔
+ramp-2 = 🌓
+ramp-3 = 🌒
+ramp-4 = 🌑
 
 [module/battery]
 type = internal/battery
@@ -216,37 +201,34 @@ battery = BAT0
 adapter = ADP1
 full-at = 99
 format-charging = <animation-charging> <label-charging>
-;format-charging-underline = #ffb52a
-
 format-discharging = <ramp-capacity> <label-discharging>
-;format-discharging-underline = ${self.format-charging-underline}
-
-; format-full-prefix = " "
-format-full-prefix-foreground = ${colors.color7}
-;format-full-underline = ${self.format-charging-underline}
 
 ramp-capacity-0 = %{F#bf616a}
-ramp-capacity-1 = %{F#9285FF}
+ramp-capacity-1 = %{F#9285ff}
 ramp-capacity-2 = %{F#ebbe65}
 ramp-capacity-3 = %{F#02c9ff}
 ramp-capacity-4 = %{F#60b48a}
-ramp-capacity-foreground = ${colors.color7}
+;ramp-capacity-0-foreground = ${colors.color1}
+;ramp-capacity-1-foreground = ${colors.color5}
+;ramp-capacity-2-foreground = ${colors.color3}
+;ramp-capacity-3-foreground = ${colors.color4}
+;ramp-capacity-4-foreground = ${colors.color2}
 
 animation-charging-0 = %{F#bf616a}
 animation-charging-1 = %{F#02c9ff}
 animation-charging-2 = %{F#60b48a}
-animation-charging-foreground = ${colors.color7}
+;animation-charging-0-foreground = ${colors.color1}
+;animation-charging-1-foreground = ${colors.color4}
+;animation-charging-2-foreground = ${colors.color2}
 animation-charging-framerate = 750
 
 [module/temperature]
 type = internal/temperature
-thermal-zone = 10
+thermal-zone = 0
 warn-temperature = 80
-
-format = <ramp> <label>
-;format-underline = #f50a4d
-format-warn = <ramp> <label-warn>
-;format-warn-underline = ${self.format-underline}
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon1/temp1_input
+format = <ramp><label>
+format-warn = <ramp><label-warn>
 
 label = %temperature-c%
 label-warn = %temperature-c%
@@ -256,13 +238,15 @@ ramp-1 = %{F#02c9ff}
 ramp-2 = %{F#60b48a}
 ramp-3 = %{F#9285FF}
 ramp-4 = %{F#bf616a}
+;ramp-0-foreground = ${colors.color6}
+;ramp-1-foreground = ${colors.color4}
+;ramp-2-foreground = ${colors.color2}
+;ramp-3-foreground = ${colors.color5}
+;ramp-4-foreground = ${colors.color1}
 
 [module/mpd]
 type = internal/mpd
 ; format-online = <icon-prev> <icon-stop> <toggle> <icon-next> <label-song>
-
-
-
 ; label-song-maxlen = 45
 ; label-song-ellipsis = true
 
@@ -335,36 +319,24 @@ bar-progress-fill = ─
 bar-progress-empty = ─
 
 [module/volume]
-type = internal/volume
+type = internal/alsa
 
 format-volume = <ramp-volume><label-volume>
 label-volume = %percentage%%
-;label-volume-foreground = ${colors.color7}
 
 format-muted-foreground = ${colors.color1}
 label-muted = ﱝ 
 
-bar-volume-width = 10
-bar-volume-foreground-0 = ${colors.color2}
-bar-volume-foreground-1 = ${colors.color2}
-bar-volume-foreground-2 = ${colors.color2}
-bar-volume-foreground-3 = ${colors.color2}
-bar-volume-foreground-4 = ${colors.color2}
-bar-volume-foreground-5 = ${colors.color4}
-bar-volume-foreground-6 = ${colors.color5}
-bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-font = 3
-bar-volume-fill = ─
-bar-volume-fill-font = 3
-bar-volume-empty = ─
-bar-volume-empty-font = 3
-bar-volume-empty-foreground = ${colors.color7}
 ramp-volume-0 = %{F#bf616a}奄
 ramp-volume-1 = %{F#60b48a}奔
 ramp-volume-2 = %{F#60b48a}墳
 ramp-volume-3 = %{F#02c9ff}
 ramp-volume-4 = %{F#9285FF}
+;ramp-volume-0-foreground = ${colors.color1}
+;ramp-volume-1-foreground = ${colors.color2}
+;ramp-volume-2-foreground = ${colors.color2}
+;ramp-volume-3-foreground = ${colors.color4}
+;ramp-volume-4-foreground = ${colors.color5}
 
 [module/powermenu]
 type = custom/menu
@@ -396,10 +368,12 @@ menu-2-1-exec = menu-open-0
 
 [module/weather]
 type = custom/script
+interval = 5
 exec = python3 .config/polybar/weather.py
 tail = true
 
 [module/openvpn]
 type = custom/script
+interval = 5
 exec = .config/polybar/openvpn_status.sh
 tail = true
