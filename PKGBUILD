@@ -10,7 +10,7 @@ depends+=('nmap' 'gnu-netcat' 'openssh' 'openvpn' 'dnsmasq' 'wpa_supplicant' 'op
 # CLI
 depends+=('zsh' 'oh-my-zsh-git' 'task' 'git' 'htop' 'ldm' 'micro'  'ranger' 'rsync' 'screen')
 # UI
-depends+=('screenfetch' 'xorg-xhost' 'xorg-xinit' 'alsa-utils' 'i3lock-color-git' 'scrot' 'python-requests' 'xorg-xrandr' 'polybar' 'dialog' 'redshift-minimal' 'dmenu2' 'feh' 'i3-gaps' 'i3blocks' 'light' 'xorg-server' 'xorg-server-common' 'compton')
+depends+=('screenfetch' 'xorg-xhost' 'xorg-xinit' 'alsa-utils' 'i3lock-color-git' 'scrot' 'python-requests' 'xorg-xrandr' 'polybar' 'dialog' 'redshift-minimal' 'dmenu2' 'feh' 'i3-gaps' 'i3blocks' 'light' 'xorg-server' 'xorg-server-common' 'compton' 'dunst')
 # Fonts
 depends+=('noto-fonts-cjk' 'nerd-fonts-hack')
 # Virtualisation
@@ -18,7 +18,7 @@ depends+=('qemu' 'lxc' 'arch-install-scripts')
 # GUI Apps
 depends+=('filezilla' 'vlc' 'p7zip' 'ranger' 'rxvt-unicode-wcwidthcallback' 'rxvt-unicode-terminfo'  'urxvt-perls' 'firefox-developer-edition')
 # Multimedia
-depends+=('w3m' 'mpd' 'ffmpeg' 'ncmpcpp')
+depends+=('w3m' 'mpd' 'ffmpeg' 'ncmpcpp' 'mpc')
 # Android
 depends+=('android-file-transfer' 'android-udev' 'android-tools')
 optdepends=('gtop' 'krita' 'megacmd' 'namebench' 'wps-office' 'wps-office-extension-french-dictionary')
@@ -34,9 +34,6 @@ package() {
   rsync -av $srcdir/4rch-master/.local $pkgdir$HOME/
   rsync -av $srcdir/4rch-master/.config $pkgdir$HOME/
   chmod 700 $pkgdir$HOME/.config
-  ## I3
-  rsync -av $srcdir/4rch-master/.i3 $pkgdir$HOME/
-  chmod 700 $pkgdir$HOME/.i3
   ## mpd + ncmpcpp
   mkdir -p $pkgdir/opt/mpd/playlists
   touch $pkgdir/opt/mpd/mpd.log $pkgdir/opt/mpd/mpd.db
@@ -49,7 +46,7 @@ package() {
   echo "exec i3" > $pkgdir$HOME/.xinitrc
   echo "#!/bin/bash" > $pkgdir$HOME/.xsession
   echo '''i3-msg "workspace 2, move workspace to output primary"
-  i3-msg "workspace 3, move workspace to output primary"''' > $pkgdir$HOME/.xsession
+  i3-msg "workspace 3, move workspace to output primary"''' >> $pkgdir$HOME/.xsession
   chmod u+x $pkgdir$HOME/.xsession
   chown -R $USER:users $pkgdir$HOME
   cat $srcdir/4rch-master/taskrc >> $HOME/.taskrc

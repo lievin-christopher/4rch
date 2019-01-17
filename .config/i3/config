@@ -110,7 +110,7 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 # lock
-bindsym $mod+l exec i3lock -t -i .i3/lock.jpg --timepos="150:h-190" --datepos="150:h-150" --clock --datestr "$(date "+%A %d %b %Y")" --insidecolor=00000000 --ringcolor=00000000 --line-uses-inside --keyhlcolor=00000000 --bshlcolor=00000000 --separatorcolor=00000000 --insidevercolor=00000000 --insidewrongcolor=00000000 --ringvercolor=00000000 --ringwrongcolor=00000000 --indpos="x+280:h-70" --radius=20 --ring-width=4 --veriftext="" --wrongtext="" --verifcolor="00000000" --timecolor="ffffffff" --datecolor="ffffffff" --date-font=Hack --time-font=Hack --timesize=40 --datesize=30 --date-align 1 --time-align 1
+bindsym $mod+l exec i3lock -t -i .config/i3/lock.jpg --timepos="150:h-190" --datepos="150:h-150" --clock --datestr "$(date "+%A %d %b %Y")" --insidecolor=00000000 --ringcolor=00000000 --line-uses-inside --keyhlcolor=00000000 --bshlcolor=00000000 --separatorcolor=00000000 --insidevercolor=00000000 --insidewrongcolor=00000000 --ringvercolor=00000000 --ringwrongcolor=00000000 --indpos="x+280:h-70" --radius=20 --ring-width=4 --veriftext="" --wrongtext="" --verifcolor="00000000" --timecolor="ffffffff" --datecolor="ffffffff" --date-font=Hack --time-font=Hack --timesize=40 --datesize=30 --date-align 1 --time-align 1
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -193,7 +193,9 @@ bindsym XF86Explorer exec --no-startup-id firefox-developer-edition
 exec_always --no-startup-id light -N 1
 exec_always --no-startup-id killall compton
 exec_always --no-startup-id compton --backend glx --vsync opengl-swc -CG --no-fading-openclose
-exec_always --no-startup-id feh --bg-fill ~/.i3/back.jpg
+exec_always --no-startup-id killall dunst
+exec_always --no-startup-id dunst
+exec_always --no-startup-id feh --bg-fill ~/.config/i3/back.jpg
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id killall redshift
 exec_always --no-startup-id redshift -l 50.6333:3.0667
