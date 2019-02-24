@@ -1,8 +1,14 @@
+# Maintainer: Lievin Christopher <lievin.christopher@gmail.com>
 pkgname=4rch
 pkgver=0.9
-pkgrel=8
+pkgrel=9
 pkgdesc="Autoconfig new archlinux installation"
 arch=('x86_64')
+license=('MIT')
+source=(https://github.com/lievin-christopher/4rch/archive/master.zip)
+sha512sums=('SKIP')
+NoUpgrade=$HOME/.zshrc
+
 # Base
 depends=('linux-hardened' 'linux-hardened-headers' 'linux-hardened-docs' 'grub' 'python' 'exfat-utils' 'ntfs-3g')
 # Network
@@ -16,14 +22,12 @@ depends+=('noto-fonts-cjk' 'nerd-fonts-hack')
 # Virtualisation
 depends+=('qemu' 'lxc' 'arch-install-scripts')
 # GUI Apps
-depends+=('filezilla' 'vlc' 'p7zip' 'ranger' 'rxvt-unicode-wcwidthcallback' 'rxvt-unicode-terminfo'  'urxvt-perls' 'firefox-developer-edition')
+depends+=('filezilla' 'vlc' 'p7zip' 'ranger' 'rxvt-unicode-wcwidthcallback' 'rxvt-unicode-terminfo'  'urxvt-perls' 'urxvt-resize-font-git' 'firefox-developer-edition')
 # Multimedia
 depends+=('w3m' 'mpd' 'ffmpeg' 'ncmpcpp' 'mpc')
 # Android
 depends+=('android-file-transfer' 'android-udev' 'android-tools')
-optdepends=('gtop' 'krita' 'megacmd' 'namebench' 'wps-office' 'wps-office-extension-french-dictionary')
-source=(https://github.com/lievin-christopher/4rch/archive/master.zip)
-sha512sums=('SKIP')
+optdepends=('gtop' 'krita' 'namebench' 'wps-office' 'wps-office-extension-french-dictionary')
 
 package() {
   ls $srcdir/4rch-master
@@ -41,21 +45,20 @@ package() {
   mkdir -p $pkgdir$HOME/Music
   rsync -av $srcdir/4rch-master/.ncmpcpp $pkgdir$HOME/
   ## Daily script
-  cp $srcdir/4rch-master/Xdefaults $pkgdir$HOME/.Xdefaults
-  cp $srcdir/4rch-master/.zshrc $pkgdir$HOME/.zshrc
-  echo "exec i3" > $pkgdir$HOME/.xinitrc
-  echo "#!/bin/bash" > $pkgdir$HOME/.xsession
-  echo '''i3-msg "workspace 1, move workspace to output primary"
-  i3-msg "workspace 2, move workspace to output primary"
-  i3-msg "workspace 3, move workspace to output primary"''' >> $pkgdir$HOME/.xsession
-  chmod u+x $pkgdir$HOME/.xsession
+  install -m644 "$srcdir/4rch-master/.Xdefaults" -t "$pkgdir$HOME/.Xdefaults"
+  install -m640 "$srcdir/4rch-master/.zshrc" -t "$pkgdir$HOME/.zshrc"
+  install -m644 "$srcdir/4rch-master/.xinitrc" -t "$pkgdir$HOME/.xinitrc"
+  install -m740 "$srcdir/4rch-master/.xsession" -t "$pkgdir$HOME/.xsession"
+  install -m640 "$srcdir/4rch-master/.taskrc" -t "$pkgdir$HOME/.taskrc"
   chown -R $USER:users $pkgdir$HOME
-  cat $srcdir/4rch-master/taskrc >> $HOME/.taskrc
   mkdir -p $pkgdir/etc/X11/xorg.conf.d/
-  cp $srcdir/4rch-master/00-keyboard.conf $pkgdir/etc/X11/xorg.conf.d/00-keyboard.conf
+  install -m644 "$srcdir/4rch-master/00-keyboard.conf" -t "$pkgdir/etc/X11/xorg.conf.d/00-keyboard.conf"
+  install -m644 "$srcdir/4rch-master/dnsmasq.conf" -t "$pkgdir/etc/dnsmasq.conf"
+  install -m644 "$srcdir/4rch-master/lxc-default" -t "$pkgdir/etc/lxc/default.conf"
+  install -m644 "$srcdir/4rch-master/lxc-net" -t "$pkgdir/etc/default/lxc-net"
   dialog --create-rc $pkgdir$HOME/.dialogrc
   dialog --create-rc $pkgdir/etc/dialogrc
-  }
+}
 
 post_install() {
 	echo -en "music_directory " > $pkgdir/etc/mpd.conf
@@ -64,7 +67,7 @@ post_install() {
     sed --in-place=.pacsave 's/arch.pool.ntp.org/fr.pool.ntp.org iburst/'
 	chown mpd /etc/mpd.conf
 	chown -R mpd /opt/mpd
-	cp $srcdir/4rch-master/bepo.gkb /boot/grub/bepo.gkb
+	install -m644 "$srcdir/4rch-master/bepo.gkb" "/boot/grub/bepo.gkb"
 	echo "insmod keylayouts" >> /etc/grub.d/40_custom
 	echo "keymap /boot/grub/bepo.gkb" >> /etc/grub.d/40_custom
 	grub-mkconfig -o /boot/grub/grub.cfg

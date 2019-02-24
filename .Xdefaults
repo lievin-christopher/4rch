@@ -11,22 +11,20 @@ URxvt.shading: 20
 !! Font prefferenes
 urxvt.font: xft:Hack Nerd Font:pixelsize=13
 urxvt.boldFont: xft:Hack Nerd Font:pixelsize=14:weight=bold
-urxvt.letterSpace: -1
 !! Larger history limit
 urxvt.saveLines: 1000000
 
 !! Perl extensions
-URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select,font-size
-URxvt.url-select.launcher: firefox
+URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select,matcher,resize-font
+URxvt.url-select.launcher:  firefox-developer-edition
 URxvt.url-select.underline: true
-URxvt.iso14755 : false
-URxvt.keysym.C-S-0x43: eval:selection_to_clipboard
-URxvt.keysym.C-S-0x56: eval:paste_clipboard
+URxvt.iso14755 :            false
+URxvt.iso14755_52:          false
+URxvt.keysym.C-S-0x43:      eval:selection_to_clipboard
+URxvt.keysym.C-S-0x56:      eval:paste_clipboard
 URxvt.keysym.M-u:           perl:url-select:select_next
 URxvt.keysym.M-Escape:      perl:keyboard-select:activate
 URxvt.keysym.M-s:           perl:keyboard-select:search
-URxvt.keysym.Control-0x2b: perl:font-size:increase
-URxvt.keysym.Control-0x2d: perl:font-size:decrease
 
 ! black
 URxvt.color0:    rgba:0064/0061/0046/3333
