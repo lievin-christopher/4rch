@@ -25,5 +25,4 @@ fi
 #aliases
 alias music='ncmpcpp'
 alias firefox='firefox-developer-edition'
-alias man='/bin/man $@ 2> /dev/null || $HOME/.local/bin/man $@ 2>/dev/null'
 screenfetch
