@@ -32,7 +32,7 @@ optdepends=('gtop' 'krita' 'namebench' 'wps-office' 'wps-office-extension-french
 package() {
   ls $srcdir/4rch-master
   mkdir -p $pkgdir$HOME/
-  mkdir -p $pkgdir/etc
+  mkdir -p $pkgdir/etc/{lxc,default}
   chmod 700 $pkgdir$HOME/
   # Install config files and directories
   rsync -av $srcdir/4rch-master/.config $pkgdir$HOME/
