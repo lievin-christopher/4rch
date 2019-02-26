@@ -35,7 +35,6 @@ package() {
   mkdir -p $pkgdir/etc
   chmod 700 $pkgdir$HOME/
   # Install config files and directories
-  rsync -av $srcdir/4rch-master/.local $pkgdir$HOME/
   rsync -av $srcdir/4rch-master/.config $pkgdir$HOME/
   chmod 700 $pkgdir$HOME/.config
   ## mpd + ncmpcpp
