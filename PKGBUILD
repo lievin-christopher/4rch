@@ -44,17 +44,17 @@ package() {
   mkdir -p $pkgdir$HOME/Music
   rsync -av $srcdir/4rch-master/.ncmpcpp $pkgdir$HOME/
   ## Daily script
-  install -m644 "$srcdir/4rch-master/.Xdefaults" -t "$pkgdir$HOME/.Xdefaults"
-  install -m640 "$srcdir/4rch-master/.zshrc" -t "$pkgdir$HOME/.zshrc"
-  install -m644 "$srcdir/4rch-master/.xinitrc" -t "$pkgdir$HOME/.xinitrc"
-  install -m740 "$srcdir/4rch-master/.xsession" -t "$pkgdir$HOME/.xsession"
-  install -m640 "$srcdir/4rch-master/.taskrc" -t "$pkgdir$HOME/.taskrc"
+  install -m644 "$srcdir/4rch-master/.Xdefaults" -t "$pkgdir$HOME/"
+  install -m640 "$srcdir/4rch-master/.zshrc" -t "$pkgdir$HOME/"
+  install -m644 "$srcdir/4rch-master/.xinitrc" -t "$pkgdir$HOME/"
+  install -m740 "$srcdir/4rch-master/.xsession" -t "$pkgdir$HOME/"
+  install -m640 "$srcdir/4rch-master/.taskrc" -t "$pkgdir$HOME/"
   chown -R $USER:users $pkgdir$HOME
   mkdir -p $pkgdir/etc/X11/xorg.conf.d/
-  install -m644 "$srcdir/4rch-master/00-keyboard.conf" -t "$pkgdir/etc/X11/xorg.conf.d/00-keyboard.conf"
-  install -m644 "$srcdir/4rch-master/dnsmasq.conf" -t "$pkgdir/etc/dnsmasq.conf"
-  install -m644 "$srcdir/4rch-master/lxc-default" -t "$pkgdir/etc/lxc/default.conf"
-  install -m644 "$srcdir/4rch-master/lxc-net" -t "$pkgdir/etc/default/lxc-net"
+  install -m644 "$srcdir/4rch-master/00-keyboard.conf" -t "$pkgdir/etc/X11/xorg.conf.d/"
+  install -m644 "$srcdir/4rch-master/dnsmasq.conf" -t "$pkgdir/etc/"
+  install -m644 "$srcdir/4rch-master/default.conf" -t "$pkgdir/etc/lxc/"
+  install -m644 "$srcdir/4rch-master/lxc-net" -t "$pkgdir/etc/default/"
   dialog --create-rc $pkgdir$HOME/.dialogrc
   dialog --create-rc $pkgdir/etc/dialogrc
 }
