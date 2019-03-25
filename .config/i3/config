@@ -190,15 +190,12 @@ bindsym XF86Calculator exec --no-startup-id urxvt -e python
 bindsym XF86Explorer exec --no-startup-id firefox-developer-edition
 
 # General
-exec_always --no-startup-id light -N 1
-exec_always --no-startup-id killall compton
-exec_always --no-startup-id compton --backend glx --vsync opengl-swc -CG --no-fading-openclose
-exec_always --no-startup-id killall dunst
-exec_always --no-startup-id dunst
-exec_always --no-startup-id feh --bg-fill ~/.config/i3/back.jpg
+exec light -N 1
+exec --no-startup-id dunst
+exec --no-startup-id feh --bg-fill ~/.config/i3/back.jpg
+exec --no-startup-id redshift -l 50.6333:3.0667
+exec --no-startup-id compton --backend glx --vsync opengl-swc -CG --no-fading-openclose
 exec_always --no-startup-id ~/.config/polybar/launch.sh
-exec_always --no-startup-id killall redshift
-exec_always --no-startup-id redshift -l 50.6333:3.0667
 smart_borders no_gaps
 gaps outer 2
 gaps inner 5
