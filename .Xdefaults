@@ -1,19 +1,24 @@
 !! Appearance
-urxvt.termName: rxvt-unicode
-urxvt.scrollBar: false
-urxvt.depth: 32
-urxvt.background: rgba:0064/0061/0046/cccc
-urxvt.foreground: #b5a780
-urxvt.cursorColor: #b5a780
+URxvt.termName: rxvt-unicode
+URxvt.scrollBar: false
+URxvt.depth: 32
+URxvt.background: rgba:0064/0061/0046/cccc
+URxvt.foreground: #b5a780
+URxvt.cursorColor: #b5a780
 URxvt.geometry: 108x25
 URxvt.transparent: true
 URxvt.shading: 20
 !! Font prefferenes
-urxvt.font: xft:Hack Nerd Font:pixelsize=13
-urxvt.boldFont: xft:Hack Nerd Font:pixelsize=14:weight=bold
+URxvt.font: xft:Hack Nerd Font:pixelsize=13
+URxvt.boldFont: xft:Hack Nerd Font:pixelsize=14:weight=bold
 !! Larger history limit
-urxvt.saveLines: 1000000
-
+URxvt.saveLines: 1000000
+!! Scroll
+URxvt.scrollTtyOutput:      false
+URxvt.scrollWithBuffer:     true
+URxvt.scrollTtyKeypress:    true
+URxvt.keysym.Shift-Up: command:\033]720;1\007
+URxvt.keysym.Shift-Down: command:\033]721;1\007
 !! Perl extensions
 URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select,matcher,resize-font
 URxvt.url-select.launcher:  firefox-developer-edition
