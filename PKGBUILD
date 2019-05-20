@@ -67,6 +67,7 @@ post_install() {
 	chown mpd /etc/mpd.conf
 	chown -R mpd /opt/mpd
 	install -m644 "$srcdir/4rch-master/bepo.gkb" "/boot/grub/bepo.gkb"
+	install -m644 "$srcdir/4rch-master/grub" "/etc/default/grub"
 	echo "insmod keylayouts" >> /etc/grub.d/40_custom
 	echo "keymap /boot/grub/bepo.gkb" >> /etc/grub.d/40_custom
 	grub-mkconfig -o /boot/grub/grub.cfg
