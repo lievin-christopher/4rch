@@ -133,8 +133,8 @@ format-connected = <ramp-signal><label-connected>
 
 format-disconnected-prefix = %{A:urxvt -T "__wifi_menu__" -e sudo wifi-menu:}
 format-disconnected-suffix = %{A}
-format-connected-prefix = %{A:urxvt -T "__wifi_menu__" -e sudo wifi-menu:}
-format-connected-suffix = %{A}
+format-connected-prefix = %{A3:urxvt -T "__wifi_menu__" -e sudo wifi-menu:}%{A1:urxvt -T "__wifi_menu__" -e sudo iftop -i $WIRELESS:}
+format-connected-suffix = %{A}%{A}
 label-connected = %downspeed% %{F#9285ff}%upspeed%%{F-}
 label-connected-foreground = ${colors.color4}
 label-disconnected = 睊
@@ -151,13 +151,15 @@ ramp-signal-padding-right = 1
 [module/wlan2]
 inherit = module/wlan
 interface = ${env:WIRELESS2}
+format-connected-prefix = %{A3:urxvt -T "__wifi_menu__" -e sudo wifi-menu:}%{A1:urxvt -T "__wifi_menu__" -e sudo iftop -i $WIRELESS2:}
 
 [module/eth]
 type = internal/network
 interface = ${env:WIRED}
 interval = 3.0
 
-format-connected-prefix =  
+format-connected-prefix = %{A:urxvt -T "__wifi_menu__" -e sudo iftop -i $WIRED:} 
+format-connected-suffix = %{A}
 format-connected-prefix-padding-right = 1
 format-connected-prefix-foreground = ${colors.color2}
 label-connected = %downspeed% %{F#9285ff}%upspeed%
@@ -169,6 +171,7 @@ label-disconnected-foreground = ${colors.color1}
 [module/eth2]
 inherit = module/eth
 interface = ${env:WIRED2}
+format-connected-prefix = %{A:urxvt -T "__wifi_menu__" -e sudo iftop -i $WIRED2:} 
 
 [module/date]
 type = internal/date
@@ -371,7 +374,7 @@ menu-2-1-exec = menu-open-0
 [module/weather]
 type = custom/script
 interval = 5
-exec = python3 .config/polybar/weather.py
+exec = python3 .config/polybar/weather.py 2> /dev/null
 tail = true
 
 [module/openvpn]

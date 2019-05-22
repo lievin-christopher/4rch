@@ -14,7 +14,7 @@ depends=('linux-hardened' 'linux-hardened-headers' 'linux-hardened-docs' 'grub' 
 # Network
 depends+=('nmap' 'gnu-netcat' 'openssh' 'openvpn' 'dnsmasq' 'wpa_supplicant' 'openssl' 'ntp')
 # CLI
-depends+=('zsh' 'oh-my-zsh-git' 'task' 'git' 'htop' 'ldm' 'micro'  'ranger' 'rsync' 'screen')
+depends+=('zsh' 'oh-my-zsh-git' 'task' 'git' 'htop' 'iftop' 'ldm' 'micro'  'ranger' 'rsync' 'screen')
 # UI
 depends+=('screenfetch' 'xorg-xhost' 'xorg-xinit' 'alsa-utils' 'i3lock-color-git' 'scrot' 'python-requests' 'xorg-xrandr' 'polybar' 'dialog' 'redshift-minimal' 'dmenu2' 'feh' 'i3-gaps' 'i3blocks' 'light' 'xorg-server' 'xorg-server-common' 'compton' 'dunst')
 # Fonts
@@ -71,6 +71,7 @@ post_install() {
 	echo "insmod keylayouts" >> /etc/grub.d/40_custom
 	echo "keymap /boot/grub/bepo.gkb" >> /etc/grub.d/40_custom
 	grub-mkconfig -o /boot/grub/grub.cfg
+	install -m600 "$srcdir/4rch-master/iftop" "/etc/sudoers.d/iftop"
 	systemctl enable mpd.service
 	systemctl enable mpd.socket
 	systemctl enable lxc-net.service
