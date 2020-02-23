@@ -202,7 +202,7 @@ ramp-4 = %{F#02c9ff}
 
 [module/battery]
 type = internal/battery
-battery = BAT0
+battery = ${env:BAT}
 adapter = ADP1
 full-at = 99
 format-charging = <animation-charging> <label-charging>
@@ -231,7 +231,7 @@ animation-charging-framerate = 750
 type = internal/temperature
 thermal-zone = 0
 warn-temperature = 80
-hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon1/temp1_input
+hwmon-path = ${env:TEMP}
 format = <ramp><label>
 format-warn = <ramp><label-warn>
 
