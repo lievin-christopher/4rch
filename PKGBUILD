@@ -1,7 +1,7 @@
 # Maintainer: Lievin Christopher <lievin.christopher@gmail.com>
 pkgname=4rch
 pkgver=0.9
-pkgrel=9
+pkgrel=10
 pkgdesc="Autoconfig new archlinux installation"
 arch=('x86_64')
 license=('MIT')
@@ -16,13 +16,13 @@ depends+=('nmap' 'gnu-netcat' 'openssh' 'openvpn' 'dnsmasq' 'wpa_supplicant' 'op
 # CLI
 depends+=('zsh' 'oh-my-zsh-git' 'task' 'git' 'htop' 'iftop' 'ldm' 'micro'  'ranger' 'rsync' 'screen')
 # UI
-depends+=('screenfetch' 'xorg-xhost' 'xorg-xinit' 'alsa-utils' 'i3lock-color-git' 'scrot' 'python-requests' 'xorg-xrandr' 'polybar' 'dialog' 'redshift-minimal' 'dmenu2' 'feh' 'i3-gaps' 'i3blocks' 'light' 'xorg-server' 'xorg-server-common' 'compton' 'dunst')
+depends+=('screenfetch' 'xorg-xhost' 'xorg-xinit' 'alsa-utils' 'i3lock-color-git' 'scrot' 'python-requests' 'xorg-xrandr' 'polybar' 'dialog' 'redshift-minimal' 'dmenu2' 'feh' 'i3-gaps' 'i3blocks' 'light' 'xorg-server' 'xorg-server-common' 'dunst')
 # Fonts
 depends+=('noto-fonts-cjk' 'nerd-fonts-hack')
 # Virtualisation
 depends+=('qemu' 'lxc' 'arch-install-scripts')
 # GUI Apps
-depends+=('filezilla' 'vlc' 'p7zip' 'ranger' 'rxvt-unicode-intensityfix'  'urxvt-perls' 'urxvt-resize-font-git' 'firefox-developer-edition')
+depends+=('filezilla' 'vlc' 'p7zip' 'ranger' 'rxvt-unicode-patched-with-scrolling' 'rxvt-unicode-terminfo' 'urxvt-perls' 'urxvt-resize-font-git' 'firefox-developer-edition')
 # Multimedia
 depends+=('w3m' 'mpd' 'ffmpeg' 'ncmpcpp' 'mpc')
 # Android
