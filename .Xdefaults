@@ -7,7 +7,7 @@ URxvt.foreground: #b5a780
 URxvt.cursorColor: #b5a780
 URxvt.geometry: 108x25
 URxvt.transparent: true
-URxvt.shading: 50
+URxvt.shading: 20
 !! Font prefferenes
 URxvt.font: xft:Hack Nerd Font:pixelsize=13
 URxvt.boldFont: xft:Hack Nerd Font:pixelsize=14:weight=bold
