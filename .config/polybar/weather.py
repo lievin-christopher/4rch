@@ -1,4 +1,8 @@
 import requests
+
+longitude=3.06
+latitude=50.63
+
 icons = {
         "clear sky":"%{F#ebbe65}",
          "few clouds":"",
@@ -47,7 +51,7 @@ icons = {
 }
 
 
-def get_weather_forecast(longitude=3.06, latitude=50.63):
+def get_weather_forecast(longitude, latitude):
     # I'm living in a country that uses a unit system that makes sense.
     params = {"units": "metric",
               "appid": "2b5e29560749e7244342efc00227bae0",
@@ -57,8 +61,11 @@ def get_weather_forecast(longitude=3.06, latitude=50.63):
     if not resp.ok:
         raise IOError(resp.text)
     return resp.json()
+    
 try:
-    weather = get_weather_forecast()
+    prefix = '%{A:urxvt -T "__weather__" -g 74x43 -e zsh -c "curl v2.wttr.in/'+str(longitude)+','+str(latitude)+' ;read":}'
+    suffix = '%{A}'
+    weather = get_weather_forecast(longitude,latitude)
     ico = icons.get(weather.get("weather")[0].get("description"))
     if not ico:
         ico = weather.get("weather")[0].get("description")
@@ -74,6 +81,6 @@ try:
         status = "%{F#60b48a}"
     else:
         status = "%{F#bf616a}"
-    print(ico+" "+status+str(temp)+"°C")
+    print(prefix+ico+" "+status+str(temp)+"°C"+suffix)
 except:
     print("%{F#bf616a}")
