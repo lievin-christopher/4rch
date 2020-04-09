@@ -193,13 +193,14 @@ bindsym XF86Explorer exec --no-startup-id firefox-developer-edition
 exec light -N 1
 exec --no-startup-id dunst
 exec --no-startup-id feh --bg-fill ~/.config/i3/back.jpg
-exec --no-startup-id redshift -l 50.6333:3.0667
+exec --no-startup-id redshift -P -O 4500
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 smart_borders no_gaps
 gaps outer 2
 gaps inner 5
 for_window [class="^.*"] border pixel 0
 for_window [title="^__calendar__"] floating enable move position center move up 300 px
+for_window [title="^__weather__"] floating enable move position center move up 150 px move right 400 px
 for_window [title="^__monitor__"] floating enable move position center move up 300 px move right 500 px
 for_window [title="^__wifi_menu__"] floating enable move position center move up 300 px move right 600 px
 for_window [title="^sxiv .*gif"] floating enable move position center move up 200 px move right 400 px focus_on_window_activation none
