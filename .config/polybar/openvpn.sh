@@ -1,6 +1,5 @@
 #!/bin/bash
-echo "Killing all previous instance of Openvpn"
-sudo killall openvpn
+ps -ef | grep "[o]penvpn" | grep -Eqv "openvpn.sh|killall" && (echo "Killing all previous instance of Openvpn" && sudo killall openvpn)
 vpnlist=""
 count=1
 for i in ~/.vpn/* ; do

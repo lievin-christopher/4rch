@@ -29,7 +29,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+A kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='dmenu -x 700 -y 350 -i -l 20 -w 400'
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='dmenu -x 760 -y 400 -i -l 20 -w 400'
 
 # change focus
 bindsym $mod+j focus left
@@ -110,7 +110,7 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 # lock
-bindsym $mod+l exec i3lock -t -i .config/i3/lock.jpg --timepos="150:h-190" --datepos="150:h-150" --clock --datestr "$(date "+%A %d %b %Y")" --insidecolor=00000000 --ringcolor=00000000 --line-uses-inside --keyhlcolor=00000000 --bshlcolor=00000000 --separatorcolor=00000000 --insidevercolor=00000000 --insidewrongcolor=00000000 --ringvercolor=00000000 --ringwrongcolor=00000000 --indpos="x+280:h-70" --radius=20 --ring-width=4 --veriftext="" --wrongtext="" --verifcolor="00000000" --timecolor="ffffffff" --datecolor="ffffffff" --date-font=Hack --time-font=Hack --timesize=40 --datesize=30 --date-align 1 --time-align 1
+bindsym $mod+l exec ~/.config/i3/lock.sh
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -192,17 +192,18 @@ bindsym XF86Explorer exec --no-startup-id firefox-developer-edition
 # General
 exec light -N 1
 exec --no-startup-id dunst
-exec --no-startup-id feh --bg-fill ~/.config/i3/back.jpg
+exec_always --no-startup-id feh --bg-fill ~/.config/i3/back.jpg
 exec --no-startup-id redshift -P -O 4500
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 smart_borders no_gaps
 gaps outer 2
 gaps inner 5
 for_window [class="^.*"] border pixel 0
-for_window [title="^__calendar__"] floating enable move position center move up 300 px
-for_window [title="^__weather__"] floating enable move position center move up 150 px move right 400 px
-for_window [title="^__monitor__"] floating enable move position center move up 300 px move right 500 px
-for_window [title="^__wifi_menu__"] floating enable move position center move up 300 px move right 600 px
+## Display 1920x1080 ##
+for_window [title="^__calendar__"] floating enable move position center move up 310 px
+for_window [title="^__weather__"] floating enable move position center move up 140 px move right 560 px
+for_window [title="^__monitor__"] floating enable move position center move up 310 px move right 520 px
+for_window [title="^__wifi_menu__"] floating enable move position center move up 310 px move right 520 px
 for_window [title="^sxiv .*gif"] floating enable move position center move up 200 px move right 400 px focus_on_window_activation none
 # End General
 

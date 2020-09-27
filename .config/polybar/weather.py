@@ -63,7 +63,7 @@ def get_weather_forecast(longitude, latitude):
     return resp.json()
     
 try:
-    prefix = '%{A:urxvt -T "__weather__" -g 74x43 -e zsh -c "curl v2.wttr.in/'+str(longitude)+','+str(latitude)+' ;read":}'
+    prefix = '%{A:urxvt -T "__weather__" -g 74x45 -e zsh -c "curl v2.wttr.in/'+str(longitude)+','+str(latitude)+' ;read":}'
     suffix = '%{A}'
     weather = get_weather_forecast(longitude,latitude)
     ico = icons.get(weather.get("weather")[0].get("description"))
