@@ -1,7 +1,7 @@
 # Maintainer: Lievin Christopher <lievin.christopher@gmail.com>
 pkgname=4rch
 pkgver=0.9
-pkgrel=10
+pkgrel=11
 pkgdesc="Autoconfig new archlinux installation"
 arch=('x86_64')
 license=('MIT')
@@ -14,7 +14,7 @@ depends=('linux-hardened' 'linux-hardened-headers' 'linux-hardened-docs' 'grub' 
 # Network
 depends+=('nmap' 'gnu-netcat' 'openssh' 'openvpn' 'dnsmasq' 'wpa_supplicant' 'openssl' 'ntp')
 # CLI
-depends+=('zsh' 'oh-my-zsh-git' 'task' 'git' 'htop' 'iftop' 'ldm' 'micro'  'ranger' 'rsync' 'screen')
+depends+=('bash-completion' 'zsh' 'oh-my-zsh-git' 'task' 'git' 'htop' 'iftop' 'ldm' 'micro'  'ranger' 'rsync' 'screen' 'xclip')
 # UI
 depends+=('screenfetch' 'xorg-xhost' 'xorg-xinit' 'alsa-utils' 'i3lock-color-git' 'scrot' 'python-requests' 'xorg-xrandr' 'polybar' 'dialog' 'redshift-minimal' 'dmenu2' 'feh' 'i3-gaps' 'i3blocks' 'light' 'xorg-server' 'xorg-server-common' 'dunst')
 # Fonts
@@ -63,7 +63,7 @@ post_install() {
 	echo -en "music_directory " > $pkgdir/etc/mpd.conf
 	echo "$HOME/Music" >>  $pkgdir/etc/mpd.conf
 	cat $srcdir/4rch-master/mpd.conf >>  $pkgdir/etc/mpd.conf
-    sed --in-place=.pacsave 's/arch.pool.ntp.org/fr.pool.ntp.org iburst/'
+    sed --in-place=.pacsave 's/arch.pool.ntp.org/fr.pool.ntp.org iburst/' $pkgdir/etc/ntp.conf 
 	chown mpd /etc/mpd.conf
 	chown -R mpd /opt/mpd
 	install -m644 "$srcdir/4rch-master/bepo.gkb" "/boot/grub/bepo.gkb"
@@ -75,4 +75,5 @@ post_install() {
 	systemctl enable mpd.service
 	systemctl enable mpd.socket
 	systemctl enable lxc-net.service
+	systemctl enable ntpd.service
 }

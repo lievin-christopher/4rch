@@ -8,8 +8,8 @@ export MONITOR=$(xrandr --listmonitors 2> /dev/null | grep "*" | cut -f6 -d' ')
 export MONITORS=$(xrandr --listmonitors 2> /dev/null | grep "+" | cut -f6 -d' ')
 export WIRELESS=$(ip link | cut -f2 -d':' | grep wl | grep -v 'altname' | tr -d ' ' | head -n 1)
 export WIRELESS2=$(ip link | cut -f2 -d':' | grep wl | grep -v 'altname' | tr -d ' ' | head -n 2 | tail -n 1 | grep -vE ^$WIRELESS$)
-export WIRED=$(ip link | cut -f2 -d':' | grep en | grep -v 'altname' | tr -d ' ' | head -n 1)
-export WIRED2=$(ip link | cut -f2 -d':' | grep en | grep -v 'altname' | tr -d ' ' | head -n 2 | tail -n 1 | grep -vE ^$WIRED$)
+export WIRED=$(ip link | cut -f2 -d':' | grep -E 'en|eth' | grep -v 'altname' | tr -d ' ' | head -n 1)
+export WIRED2=$(ip link | cut -f2 -d':' | grep -E 'en|eth' | grep -v 'altname' | tr -d ' ' | head -n 2 | tail -n 1 | grep -vE ^$WIRED$)
 plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
