@@ -1,2 +1,2 @@
 #!/bin/bash
-ip a s dev tun0 &> /dev/null  && echo "%{A:urxvt -T '__calendar__' -e zsh -c '~/.config/polybar/openvpn.sh':}%{F#60b48a}%{A}" || echo "%{A:urxvt -T '__calendar__' -e zsh -c '~/.config/polybar/openvpn.sh':}%{F#bf616a}%{A}"
+ip a s dev tun0 &> /dev/null  && echo "%{A:i3-sensible-terminal --title '__calendar__' -e ~/.config/polybar/openvpn.sh:}%{F#60b48a}%{A}" || echo "%{A:i3-sensible-terminal --title '__calendar__' -e ~/.config/polybar/openvpn.sh:}%{F#bf616a}%{A}"

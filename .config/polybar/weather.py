@@ -63,7 +63,11 @@ def get_weather_forecast(longitude, latitude):
     return resp.json()
     
 try:
-    prefix = '%{A:urxvt -T "__weather__" -g 74x45 -e zsh -c "curl v2.wttr.in/'+str(longitude)+','+str(latitude)+' ;read":}'
+    import os
+    env = os.getenv('I3_TERM')
+    prefix = '%{A:i3-sensible-terminal --title "__weather__" -g 74x46 -e bash -c "curl v2.wttr.in/'+str(latitude)+','+str(longitude)+' ;read":}'
+    if env == "alacritty":
+        prefix = '%{A:i3-sensible-terminal --title "__weather__" -o window.dimensions.columns=74 window.dimensions.lines=48 -e bash -c "curl v2.wttr.in/'+str(latitude)+','+str(longitude)+' ;read":}'
     suffix = '%{A}'
     weather = get_weather_forecast(longitude,latitude)
     ico = icons.get(weather.get("weather")[0].get("description"))

@@ -9,7 +9,7 @@
 
 [colors]
 ; black
-color0 = #0f1111
+color0 = #0F1111
 color8 = #709080
 ; red
 color1 = #bf616a
@@ -111,7 +111,7 @@ label-visible-padding = 1
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = %{A:urxvt -T "__monitor__" -e htop:} 
+format-prefix = %{A:i3-sensible-terminal --title "__monitor__" -e htop:} 
 format-prefix-padding-right = 1
 format-foreground = ${colors.color4}
 label = %percentage%%%{A}
@@ -119,7 +119,7 @@ label = %percentage%%%{A}
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = %{A:urxvt -T "__monitor__" -e htop:} 
+format-prefix = %{A:i3-sensible-terminal --title "__monitor__" -e htop:} 
 format-prefix-padding-right = 1
 label = %percentage_used%%%{A}
 format-foreground = ${colors.color5}
@@ -131,9 +131,9 @@ interval = 3.0
 
 format-connected = <ramp-signal><label-connected>
 
-format-disconnected-prefix = %{A:urxvt -T "__wifi_menu__" -e sudo wifi-menu:}
+format-disconnected-prefix = %{A:i3-sensible-terminal --title "__wifi_menu__" -e sudo wifi-menu:}
 format-disconnected-suffix = %{A}
-format-connected-prefix = %{A3:urxvt -T "__wifi_menu__" -e sudo wifi-menu:}%{A1:urxvt -T "__wifi_menu__" -e sudo iftop -i $WIRELESS:}
+format-connected-prefix = %{A3:i3-sensible-terminal --title "__wifi_menu__" -e sudo wifi-menu:}%{A1:i3-sensible-terminal --title "__wifi_menu__" -e sudo iftop -i $WIRELESS:}
 format-connected-suffix = %{A}%{A}
 label-connected = %downspeed% %{F#9285ff}%upspeed%%{F-}
 label-connected-foreground = ${colors.color4}
@@ -151,14 +151,14 @@ ramp-signal-padding-right = 1
 [module/wlan2]
 inherit = module/wlan
 interface = ${env:WIRELESS2}
-format-connected-prefix = %{A3:urxvt -T "__wifi_menu__" -e sudo wifi-menu:}%{A1:urxvt -T "__wifi_menu__" -e sudo iftop -i $WIRELESS2:}
+format-connected-prefix = %{A3:i3-sensible-terminal --title "__wifi_menu__" -e sudo wifi-menu:}%{A1:i3-sensible-terminal --title "__wifi_menu__" -e sudo iftop -i $WIRELESS2:}
 
 [module/eth]
 type = internal/network
 interface = ${env:WIRED}
 interval = 3.0
 
-format-connected-prefix = %{A:urxvt -T "__wifi_menu__" -e sudo iftop -i $WIRED:} 
+format-connected-prefix = %{A:i3-sensible-terminal --title "__wifi_menu__" -e sudo iftop -i $WIRED:} 
 format-connected-suffix = %{A}
 format-connected-prefix-padding-right = 1
 format-connected-prefix-foreground = ${colors.color2}
@@ -171,7 +171,7 @@ label-disconnected-foreground = ${colors.color1}
 [module/eth2]
 inherit = module/eth
 interface = ${env:WIRED2}
-format-connected-prefix = %{A:urxvt -T "__wifi_menu__" -e sudo iftop -i $WIRED2:} 
+format-connected-prefix = %{A:i3-sensible-terminal --title "__wifi_menu__" -e sudo iftop -i $WIRED2:} 
 
 [module/date]
 type = internal/date
@@ -181,7 +181,7 @@ date = %a %d %b %Y
 label-foreground = ${colors.color6}
 time = %H:%M:%S
 
-format-prefix = %{A:urxvt -T "__calendar__" -e zsh -c "task calendar && task list; read":} ────[
+format-prefix = %{A:i3-sensible-terminal --title "__calendar__" -e bash -c "task calendar && task list; read":} ────[
 format-suffix = ]────%{A}
 format = <label> 
 label =  %date% %{F#bf616a}%time%
@@ -205,6 +205,7 @@ type = internal/battery
 battery = ${env:BAT}
 adapter = ADP1
 full-at = 99
+format-full = %{F#60b48a}  100%
 format-charging = <animation-charging> <label-charging>
 format-discharging = <ramp-capacity> <label-discharging>
 
@@ -326,6 +327,7 @@ bar-progress-empty = ─
 [module/volume]
 type = internal/alsa
 
+master-mixer = ${env:ALSA_MASTER}
 format-volume = <ramp-volume><label-volume>
 label-volume = %percentage%%
 
@@ -374,11 +376,11 @@ menu-2-1-exec = menu-open-0
 [module/weather]
 type = custom/script
 interval = 5
-exec = python3 .config/polybar/weather.py 2> /dev/null
+exec = python3 ~/.config/polybar/weather.py 2> /dev/null
 tail = true
 
 [module/openvpn]
 type = custom/script
 interval = 5
-exec = .config/polybar/openvpn_status.sh
+exec = ~/.config/polybar/openvpn_status.sh
 tail = true

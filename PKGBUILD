@@ -1,7 +1,7 @@
 # Maintainer: Lievin Christopher <lievin.christopher@gmail.com>
 pkgname=4rch
-pkgver=0.9
-pkgrel=11
+pkgver=1.0
+pkgrel=0
 pkgdesc="Autoconfig new archlinux installation"
 arch=('x86_64')
 license=('MIT')
@@ -18,16 +18,19 @@ depends+=('bash-completion' 'zsh' 'oh-my-zsh-git' 'task' 'git' 'htop' 'iftop' 'l
 # UI
 depends+=('screenfetch' 'xorg-xhost' 'xorg-xinit' 'alsa-utils' 'i3lock-color-git' 'scrot' 'python-requests' 'xorg-xrandr' 'polybar' 'dialog' 'redshift-minimal' 'dmenu2' 'feh' 'i3-gaps' 'i3blocks' 'light' 'xorg-server' 'xorg-server-common' 'dunst')
 # Fonts
-depends+=('noto-fonts-cjk' 'nerd-fonts-hack')
+depends+=('nerd-fonts-hack')
+## old fonts noto-fonts-cjk
 # Virtualisation
 depends+=('qemu' 'lxc' 'arch-install-scripts')
 # GUI Apps
-depends+=('filezilla' 'vlc' 'p7zip' 'ranger' 'rxvt-unicode-patched-with-scrolling' 'rxvt-unicode-terminfo' 'urxvt-perls' 'urxvt-resize-font-git' 'firefox-developer-edition')
+depends+=('filezilla' 'vlc' 'p7zip' 'ranger'  'rxvt-unicode-terminfo' 'alacritty' 'firefox-developer-edition')
 # Multimedia
 depends+=('w3m' 'mpd' 'ffmpeg' 'ncmpcpp' 'mpc')
 # Android
 depends+=('android-file-transfer' 'android-udev' 'android-tools')
 optdepends=('gtop' 'krita' 'namebench' 'wps-office' 'wps-office-extension-french-dictionary')
+# Old Urxvt Variant
+optdepends+=('rxvt-unicode-patched-with-scrolling' 'urxvt-perls' 'urxvt-resize-font-git')
 
 package() {
   ls $srcdir/4rch-master
@@ -61,7 +64,7 @@ package() {
 
 post_install() {
 	echo -en "music_directory " > $pkgdir/etc/mpd.conf
-	echo "$HOME/Music" >>  $pkgdir/etc/mpd.conf
+	echo "\"$HOME/Music\"" >>  $pkgdir/etc/mpd.conf
 	cat $srcdir/4rch-master/mpd.conf >>  $pkgdir/etc/mpd.conf
     sed --in-place=.pacsave 's/arch.pool.ntp.org/fr.pool.ntp.org iburst/' $pkgdir/etc/ntp.conf 
 	chown mpd /etc/mpd.conf

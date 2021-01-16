@@ -29,11 +29,13 @@ audio_output {
 	path "/tmp/mpd.fifo"
 	format "44100:16:2"
 }
-visualizer_look = "●▮"
+visualizer_look = "●▮" # Style 1
+# visualizer_look = "●■" # Style 2
+# visualizer_look = "●▞" # Style 3
+# visualizer_look = "●▓" # Style 4
 visualizer_output_name = "FIFO" 
 visualizer_in_stereo = "yes"
-visualizer_fifo_path = "/tmp/mpd.fifo"
-visualizer_sync_interval = "10"
+visualizer_data_source = "/tmp/mpd.fifo"
 visualizer_type = "ellipse"
 ##### notify settings #####
 execute_on_song_change = notify-send -a ncmpcpp  "Now Playing ♫"  $"$(mpc current)"
