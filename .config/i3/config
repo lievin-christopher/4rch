@@ -186,7 +186,7 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 bindsym XF86WWW exec --no-startup-id firefox-developer-edition
-bindsym XF86Calculator exec --no-startup-id urxvt -e python
+bindsym XF86Calculator exec --no-startup-id i3-sensible-terminal -e python
 bindsym XF86Explorer exec --no-startup-id firefox-developer-edition
 
 # General
