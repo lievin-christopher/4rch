@@ -1,7 +1,7 @@
 # Maintainer: Lievin Christopher <lievin.christopher@gmail.com>
 pkgname=4rch
 pkgver=1.0
-pkgrel=1
+pkgrel=2
 pkgdesc="Autoconfig new archlinux installation"
 arch=('x86_64')
 license=('MIT')
@@ -19,7 +19,6 @@ depends+=('bash-completion' 'zsh' 'oh-my-zsh-git' 'task' 'git' 'htop' 'iftop' 'l
 depends+=('screenfetch' 'xorg-xhost' 'xorg-xinit' 'alsa-utils' 'i3lock-color-git' 'scrot' 'python-requests' 'xorg-xrandr' 'polybar' 'dialog' 'redshift-minimal' 'dmenu2' 'feh' 'i3-gaps' 'i3blocks' 'light' 'xorg-server' 'xorg-server-common' 'dunst')
 # Fonts
 depends+=('nerd-fonts-hack')
-## old fonts noto-fonts-cjk
 # Virtualisation
 depends+=('qemu' 'lxc' 'arch-install-scripts')
 # GUI Apps
@@ -28,9 +27,18 @@ depends+=('filezilla' 'vlc' 'p7zip' 'ranger'  'rxvt-unicode-terminfo' 'alacritty
 depends+=('w3m' 'mpd' 'ffmpeg' 'ncmpcpp' 'mpc')
 # Android
 depends+=('android-file-transfer' 'android-udev' 'android-tools')
-optdepends=('gtop' 'krita' 'namebench' 'wps-office' 'wps-office-extension-french-dictionary')
-# Old Urxvt Variant
+# Optional packages
+## CLI
+optdepends=('bat' 'gtop' 'namebench')
+## GUI
+### Office
+optdepends+=('wps-office' 'wps-office-extension-french-dictionary')
+### Images
+optdepends+=('imv' 'krita')
+## Old Urxvt Variant
 optdepends+=('rxvt-unicode-patched-with-scrolling' 'urxvt-perls' 'urxvt-resize-font-git')
+## Old Fonts 
+optdepends+=('noto-fonts-cjk')
 
 package() {
   ls $srcdir/4rch-master
