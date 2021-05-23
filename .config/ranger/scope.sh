@@ -71,8 +71,8 @@ handle_extension() {
         # EXEL
         xls|xlsx)
             # Preview as text conversion
-            unoconv -f csv "${FILE_PATH}" && exit 5
-            # bsdtar -O -f "${FILE_PATH}" -x word/document.xml | sed -e 's/<[^>]\{1,\}>//g; s/[^[:print:]]\{1,\}//g;s/\h/\n/g;s/[0-9]*-[0-9]*-[0-9]*//;/^$/d' && exit 5
+            unoconv -f txt "${FILE_PATH}" && exit 5
+            mkdir /tmp/preview_exel; bsdtar -f "${FILE_PATH}" -x --cd /tmp/preview_exel; echo -n "" > /tmp/preview_exel/worksheets.txt ; for sheet in $(find /tmp/preview_exel/xl/worksheets -name '*.xml' |  sort -V);do echo "##### ${sheet} #####" >> /tmp/preview_exel/worksheets.txt; grep -oE '<c r="[a-zA-Z0-9]+" (s="[0-9]+"( )*)*(t="[0-9a-zA-Z]")*><v>[a-zA-Z.,0-9]+</v></c>' ${sheet} | sed -E 's@<(/)*c( )*(>)*@@g;s@[st]="[0-9s]*"@@g;s@r="@@g;s@" *>@;@g;s@<(/)*v>@@g' >> /tmp/preview_exel/worksheets.txt;done ; sed -E 's@<si>@\n<si>@g;s@<(/)*t( xml:[a-zA-Z]*="[a-zA-Z]*")*>@@g;s@<(/)*si>@@g;s@<(/)*sst>@@g' /tmp/preview_exel/xl/sharedStrings.xml | tail -n +2 > /tmp/preview_exel/sharedStrings.txt ; awk -F ';' 'NR==FNR {a[NR-1]=$0;next} ($2 in a){print $1";"a[$2]} !($2 in a) {print $1";"$2}' /tmp/preview_exel/sharedStrings.txt /tmp/preview_exel/worksheets.txt; rm -rf /tmp/preview_exel ; exit 5
             exit 1;;
 
         # BitTorrent
