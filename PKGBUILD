@@ -1,13 +1,32 @@
 # Maintainer: Lievin Christopher <lievin.christopher@gmail.com>
 pkgname=4rch
 pkgver=1.0
-pkgrel=2
+pkgrel=3
 pkgdesc="Autoconfig new archlinux installation"
 arch=('x86_64')
 license=('MIT')
 source=(https://github.com/lievin-christopher/4rch/archive/master.zip)
 sha512sums=('SKIP')
 NoUpgrade=$HOME/.zshrc
+backup=(
+        "$HOME/.config/alacritty/alacritty.yml" 
+        "$HOME/.config/dunst/dunstrc" 
+        "$HOME/.config/i3/config" 
+        "$HOME/.config/micro/{bindings.json,settings.json,colorschemes/nano.micro}" 
+        "$HOME/.config/picom/picom.conf"
+        "$HOME/.config/polybar/{config,launch.sh,openvpn.sh,openvpn_status.sh,weather.py}"
+        "$HOME/.config/ranger/{rc.conf,rifle.conf,scope.sh}"
+        "$HOME/.ncmpcpp/config"
+        "$HOME/{.dialogrc,.taskrc,.Xdefaults,.xinitrc,.xsession}"
+        "boot/grub/bepo.gkb"
+        "etc/default/{grub,lxc-net}"
+        "etc/grub.d/40_custom"
+        "etc/lxc/default.conf"
+        "etc/sudoers.d/iftop"
+        "etc/X11/xorg.conf.d/00-keyboard.conf"
+        "etc/{dnsmasq.conf,dialogrc,mpd.conf,ntp.conf}"
+        "opt/mpd/{mpd.log,mpd.db}"
+       )
 
 # Base
 depends=('linux-hardened' 'linux-hardened-headers' 'linux-hardened-docs' 'grub' 'python' 'exfat-utils' 'ntfs-3g')
