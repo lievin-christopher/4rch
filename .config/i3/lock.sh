@@ -5,4 +5,4 @@ while pgrep -c i3lock &> /dev/null
 do
     sleep 5
 done
-dunstctl set-paused false%
+dunstctl set-paused false

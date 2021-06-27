@@ -1,7 +1,7 @@
 # Maintainer: Lievin Christopher <lievin.christopher@gmail.com>
 pkgname=4rch
 pkgver=1.0
-pkgrel=4
+pkgrel=5
 pkgdesc="Autoconfig new archlinux installation"
 arch=('x86_64')
 license=('MIT')
@@ -45,7 +45,7 @@ depends+=('nmap' 'gnu-netcat' 'openssh' 'openvpn' 'dnsmasq' 'wpa_supplicant' 'op
 # CLI
 depends+=('bash-completion' 'zsh' 'oh-my-zsh-git' 'task' 'git' 'htop' 'iftop' 'ldm' 'micro'  'ranger' 'rsync' 'screen' 'xclip')
 # UI
-depends+=('screenfetch' 'xorg-xhost' 'xorg-xinit' 'alsa-utils' 'i3lock-color-git' 'scrot' 'python-requests' 'xorg-xrandr' 'polybar' 'dialog' 'redshift-minimal' 'dmenu2' 'feh' 'i3-gaps' 'i3blocks' 'light' 'xorg-server' 'xorg-server-common' 'dunst' 'picom')
+depends+=('screenfetch' 'xorg-xhost' 'xorg-xinit' 'alsa-utils' 'i3lock-color-git' 'scrot' 'python-requests' 'xorg-xrandr' 'polybar' 'dialog' 'redshift-minimal' 'dmenu2' 'feh' 'i3-gaps' 'i3blocks' 'light' 'xorg-server' 'xorg-server-common' 'dunst' 'picom' 'imv')
 # Fonts
 depends+=('nerd-fonts-hack')
 # Virtualisation
@@ -63,7 +63,7 @@ optdepends=('bat' 'gtop' 'namebench')
 ### Office
 optdepends+=('wps-office' 'wps-office-extension-french-dictionary')
 ### Images
-optdepends+=('imv' 'krita')
+optdepends+=('krita')
 ## Old Urxvt Variant
 optdepends+=('rxvt-unicode-patched-with-scrolling' 'urxvt-perls' 'urxvt-resize-font-git')
 ## Old Fonts 
