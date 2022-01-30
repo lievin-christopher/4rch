@@ -1,4 +1,4 @@
-export PATH=.:$HOME/bin:/usr/local/bin:$PATH
+export PATH=.:$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH
 export ZSH=/usr/share/oh-my-zsh
 export ZSH_THEME="rkj-repos"
 export HIST_STAMPS="yyyy-mm-dd"

@@ -15,6 +15,7 @@ window:
         y: 3
     decorations: none
     dynamic_title: true
+    opacity: .8
 font:
     normal:
         family: Hack Nerd Font
@@ -67,7 +68,6 @@ colors:
         cyan:    '#56B6C2'
         white:   '#D8D8D8'
 
-background_opacity: .8
 draw_bold_text_with_bright_colors: true
 cursor:
     style: Block

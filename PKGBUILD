@@ -1,7 +1,7 @@
 # Maintainer: Lievin Christopher <lievin.christopher@gmail.com>
 pkgname=4rch
 pkgver=1.0
-pkgrel=5
+pkgrel=6
 pkgdesc="Autoconfig new archlinux installation"
 arch=('x86_64')
 license=('MIT')
@@ -77,6 +77,8 @@ package() {
   # Install config files and directories
   rsync -av $srcdir/4rch-master/.config $pkgdir$HOME/
   chmod 700 $pkgdir$HOME/.config
+  rsync -av $srcdir/4rch-master/.local $pkgdir$HOME/
+  chmod 700 $pkgdir$HOME/.local
   ## mpd + ncmpcpp
   mkdir -p $pkgdir/opt/mpd/playlists
   touch $pkgdir/opt/mpd/mpd.log $pkgdir/opt/mpd/mpd.db
