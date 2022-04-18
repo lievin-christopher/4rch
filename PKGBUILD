@@ -41,11 +41,11 @@ backup=(
 # Base
 depends=('linux-hardened' 'linux-hardened-headers' 'linux-hardened-docs' 'grub' 'python' 'exfat-utils' 'ntfs-3g')
 # Network
-depends+=('nmap' 'gnu-netcat' 'openssh' 'openvpn' 'dnsmasq' 'wpa_supplicant' 'openssl' 'ntp')
+depends+=('nmap' 'gnu-netcat' 'openssh' 'dnsmasq' 'wpa_supplicant' 'openssl' 'ntp')
 # CLI
-depends+=('bash-completion' 'zsh' 'oh-my-zsh-git' 'zsh-syntax-highlighting' 'task' 'git' 'htop' 'iftop' 'ldm' 'micro'  'ranger' 'rsync' 'screen' 'xclip')
+depends+=('bash-completion' 'zsh' 'oh-my-zsh-git' 'zsh-syntax-highlighting' 'task' 'git' 'htop' 'iftop' 'micro'  'ranger' 'rsync' 'screen' 'xclip')
 # UI
-depends+=('screenfetch' 'xorg-xhost' 'xorg-xinit' 'alsa-utils' 'i3lock-color-git' 'scrot' 'python-requests' 'xorg-xrandr' 'polybar' 'dialog' 'redshift-minimal' 'dmenu2' 'feh' 'i3-gaps' 'i3blocks' 'light' 'xorg-server' 'xorg-server-common' 'dunst' 'picom' 'imv')
+depends+=('screenfetch' 'xorg-xhost' 'xorg-xinit' 'alsa-utils' 'i3lock-color-git' 'scrot' 'python-requests' 'xorg-xrandr' 'polybar' 'dialog' 'redshift-minimal' 'dmenu2' 'feh' 'i3-gaps' 'light' 'xorg-server' 'xorg-server-common' 'dunst' 'picom' 'imv')
 # Fonts
 depends+=('nerd-fonts-hack')
 # Virtualisation
@@ -57,11 +57,13 @@ depends+=('w3m' 'mpd' 'ffmpeg' 'ncmpcpp' 'mpc')
 # Android
 depends+=('android-file-transfer' 'android-udev' 'android-tools')
 # Optional packages
+## Network
+optdepends=('openvpn' 'wireguard-tools')
 ## CLI
-optdepends=('bat' 'gtop' 'namebench')
+optdepends+=('bat' 'gtop' 'ldm')
 ## GUI
 ### Office
-optdepends+=('wps-office' 'wps-office-extension-french-dictionary')
+optdepends+=('wps-office')
 ### Images
 optdepends+=('krita')
 ## Old Urxvt Variant
