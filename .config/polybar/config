@@ -382,5 +382,5 @@ tail = true
 [module/openvpn]
 type = custom/script
 interval = 5
-exec = ~/.config/polybar/openvpn_status.sh
+exec = ~/.config/polybar/vpn_status.sh
 tail = true
