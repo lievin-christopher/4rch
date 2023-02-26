@@ -42,7 +42,3 @@ else
         i3-msg "restart"
     fi
 fi
-if [[ "$(xrandr --listactivemonitors | wc -l)" -ne $ACTIVE_MONITOR ]]
-then
-    i3-msg "restart"
-fi

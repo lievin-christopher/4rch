@@ -22,13 +22,10 @@ font:
         style: Regular
     size: 9.5
     bold:
-        family: Hack Nerd Font
         style: Bold
     italic:
-        family: Hack Nerd Font
         style: Italic
     bold_italic:
-        family: Hack Nerd Font
         style: Bold Italic
 scrolling:
     history: 100000

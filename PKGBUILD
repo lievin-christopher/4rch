@@ -1,6 +1,6 @@
 # Maintainer: Lievin Christopher <lievin.christopher@gmail.com>
 pkgname=4rch
-pkgver=1.1
+pkgver=1.2
 pkgrel=0
 pkgdesc="Autoconfig new archlinux installation"
 arch=('x86_64')
@@ -43,11 +43,13 @@ depends=('linux-hardened' 'linux-hardened-headers' 'linux-hardened-docs' 'grub' 
 # Network
 depends+=('nmap' 'gnu-netcat' 'openssh' 'dnsmasq' 'wpa_supplicant' 'openssl' 'ntp')
 # CLI
-depends+=('bash-completion' 'zsh' 'oh-my-zsh-git' 'zsh-syntax-highlighting' 'task' 'git' 'htop' 'iftop' 'micro'  'ranger' 'rsync' 'screen' 'xclip')
+depends+=('bash-completion' 'zsh' 'zsh-syntax-highlighting' 'task' 'git' 'htop' 'iftop' 'micro'  'ranger' 'rsync' 'screen' 'xclip')
+depends+=('oh-my-zsh-git') #AUR
 # UI
-depends+=('screenfetch' 'xorg-xhost' 'xorg-xinit' 'alsa-utils' 'i3lock-color-git' 'scrot' 'python-requests' 'xorg-xrandr' 'polybar' 'dialog' 'redshift-minimal' 'dmenu2' 'feh' 'i3-gaps' 'light' 'xorg-server' 'xorg-server-common' 'dunst' 'picom' 'imv')
+depends+=('screenfetch' 'xorg-xhost' 'xorg-xinit' 'alsa-utils' 'scrot' 'python-requests' 'xorg-xrandr' 'polybar' 'dialog' 'feh' 'i3-gaps' 'light' 'xorg-server' 'xorg-server-common' 'dunst' 'picom')
+depends+=('i3lock-color-git' 'redshift-minimal' 'dmenu2') #AUR
 # Fonts
-depends+=('nerd-fonts-hack')
+depends+=('ttf-hack-nerd' 'noto-fonts-emoji')
 # Virtualisation
 depends+=('qemu' 'lxc' 'arch-install-scripts')
 # GUI Apps
