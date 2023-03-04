@@ -9,22 +9,7 @@ source=(https://github.com/lievin-christopher/4rch/archive/master.zip)
 sha512sums=('SKIP')
 NoUpgrade=$HOME/.zshrc
 backup=(
-        "${HOME:1}/.config/alacritty/alacritty.yml"
-        "${HOME:1}/.config/dunst/dunstrc"
-        "${HOME:1}/.config/i3/config"
-        "${HOME:1}/.config/i3/lock.sh"
-        "${HOME:1}/.config/micro/colorschemes/nano.micro"
-        "${HOME:1}/.config/micro/bindings.json"
-        "${HOME:1}/.config/micro/settings.json"
-        "${HOME:1}/.config/picom/picom.conf"
-        "${HOME:1}/.config/polybar/config"
-        "${HOME:1}/.config/polybar/launch.sh"
-        "${HOME:1}/.config/polybar/openvpn.sh"
-        "${HOME:1}/.config/polybar/openvpn_status.sh"
-        "${HOME:1}/.config/polybar/weather.py"
-        "${HOME:1}/.config/ranger/rc.conf"
-        "${HOME:1}/.config/ranger/rifle.conf"
-        "${HOME:1}/.config/ranger/scope.sh"
+        "${HOME:1}/.config"
         "${HOME:1}/.ncmpcpp/config"
         "${HOME:1}/.dialogrc"
         "${HOME:1}/.taskrc"
