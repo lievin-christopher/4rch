@@ -49,7 +49,7 @@ depends+=('oh-my-zsh-git') #AUR
 depends+=('screenfetch' 'xorg-xhost' 'xorg-xinit' 'alsa-utils' 'scrot' 'python-requests' 'xorg-xrandr' 'polybar' 'dialog' 'feh' 'i3-gaps' 'light' 'xorg-server' 'xorg-server-common' 'dunst' 'picom')
 depends+=('i3lock-color-git' 'redshift-minimal' 'dmenu2') #AUR
 # Fonts
-depends+=('ttf-hack-nerd' 'noto-fonts-emoji')
+depends+=('ttf-hack-nerd' 'noto-fonts' 'noto-fonts-cjk' 'noto-fonts-emoji')
 # Virtualisation
 depends+=('qemu' 'lxc' 'arch-install-scripts')
 # GUI Apps
@@ -70,8 +70,6 @@ optdepends+=('wps-office')
 optdepends+=('krita')
 ## Old Urxvt Variant
 optdepends+=('rxvt-unicode-patched-with-scrolling' 'urxvt-perls' 'urxvt-resize-font-git')
-## Old Fonts 
-optdepends+=('noto-fonts-cjk')
 
 package() {
   ls $srcdir/4rch-master

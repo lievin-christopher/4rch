@@ -11,6 +11,7 @@
     "fileformat": "unix",
     "ftoptions": true,
     "hidehelp": false,
+    "hlsearch": true,
     "ignorecase": false,
     "indentchar": " ",
     "infobar": true,
@@ -18,9 +19,10 @@
     "keymenu": false,
     "linter": true,
     "literate": true,
-    "matchbrace": false,
+    "matchbrace": true,
     "matchbraceleft": false,
     "mouse": true,
+    "permbackup": true,
     "pluginchannels": [
         "https://raw.githubusercontent.com/micro-editor/plugin-channel/master/channel.json"
     ],
