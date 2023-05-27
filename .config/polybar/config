@@ -68,7 +68,7 @@ font-2 = Noto Emoji:pixelsize=8;2
 
 modules-left = i3
 modules-center = date
-modules-right = weather cpu memory temperature volume backlight openvpn wlan wlan2 eth eth2 battery powermenu
+modules-right = weather cpu memory temperature alsa backlight openvpn wlan wlan2 eth eth2 battery powermenu
 
 tray-position = right
 tray-padding = 2
@@ -327,9 +327,6 @@ bar-progress-fill = ─
 bar-progress-empty = ─
 
 [module/volume]
-type = internal/alsa
-
-master-mixer = ${env:ALSA_MASTER}
 format-volume = <ramp-volume><label-volume>
 label-volume = %percentage%%
 
@@ -346,6 +343,17 @@ ramp-volume-4 = %{F#9285FF}
 ;ramp-volume-2-foreground = ${colors.color2}
 ;ramp-volume-3-foreground = ${colors.color4}
 ;ramp-volume-4-foreground = ${colors.color5}
+
+[module/alsa]
+inherit = module/volume
+type = internal/alsa
+master-mixer = ${env:ALSA_MASTER}
+
+[module/pulseaudio]
+inherit = module/volume
+type = internal/pulseaudio
+use-ui-max = true
+interval = 5
 
 [module/powermenu]
 type = custom/menu
