@@ -104,10 +104,10 @@ handle_image() {
             convert "${FILE_PATH}" "${IMAGE_CACHE_PATH}" && exit 6
             exit 1;;
 
-        # AVIF
-        image/heif)
-            convert "${FILE_PATH}" "${IMAGE_CACHE_PATH}" && exit 6
-            exit 1;;
+#        # AVIF
+#        image/heif)
+#            convert "${FILE_PATH}" "${IMAGE_CACHE_PATH}" && exit 6
+#            exit 1;;
 
         # Image
         image/*)
