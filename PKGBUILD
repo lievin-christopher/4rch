@@ -1,6 +1,6 @@
 # Maintainer: Lievin Christopher <lievin.christopher@gmail.com>
 pkgname=4rch
-pkgver=1.2
+pkgver=1.3
 pkgrel=0
 pkgdesc="Autoconfig new archlinux installation"
 arch=('x86_64')
