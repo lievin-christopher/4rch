@@ -1,6 +1,6 @@
 # Maintainer: Lievin Christopher <lievin.christopher@gmail.com>
 pkgname=4rch
-pkgver=1.3
+pkgver=1.4
 pkgrel=0
 pkgdesc="Autoconfig new archlinux installation"
 arch=('x86_64')
@@ -35,7 +35,7 @@ depends+=('oh-my-zsh-git') #AUR
 depends+=('xorg-xhost' 'xorg-xinit' 'scrot' 'xorg-xrandr' 'polybar' 'feh' 'i3-gaps'  'xorg-server' 'xorg-server-common' 'picom' 'xclip')
 depends+=('i3lock-color-git' 'redshift-minimal' 'dmenu2') #AUR
 ## Universal
-depends+=('screenfetch' 'alsa-utils' 'python-requests' 'dialog' 'light' 'dunst')
+depends+=('screenfetch' 'pipewire' 'pipewire-audio' 'pipewire-pulse' 'wireplumber' 'python-requests' 'dialog' 'light' 'dunst')
 # Fonts
 depends+=('ttf-hack-nerd' 'noto-fonts' 'noto-fonts-cjk' 'noto-fonts-emoji')
 # Virtualisation
