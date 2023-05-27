@@ -28,17 +28,20 @@ depends=('linux-hardened' 'linux-hardened-headers' 'linux-hardened-docs' 'grub' 
 # Network
 depends+=('nmap' 'gnu-netcat' 'openssh' 'dnsmasq' 'wpa_supplicant' 'openssl' 'ntp')
 # CLI
-depends+=('bash-completion' 'zsh' 'zsh-syntax-highlighting' 'task' 'git' 'htop' 'iftop' 'micro'  'ranger' 'rsync' 'screen' 'xclip')
+depends+=('bash-completion' 'zsh' 'zsh-syntax-highlighting' 'task' 'git' 'htop' 'iftop' 'micro'  'ranger' 'rsync' 'screen')
 depends+=('oh-my-zsh-git') #AUR
 # UI
-depends+=('screenfetch' 'xorg-xhost' 'xorg-xinit' 'alsa-utils' 'scrot' 'python-requests' 'xorg-xrandr' 'polybar' 'dialog' 'feh' 'i3-gaps' 'light' 'xorg-server' 'xorg-server-common' 'dunst' 'picom')
+## X11
+depends+=('xorg-xhost' 'xorg-xinit' 'scrot' 'xorg-xrandr' 'polybar' 'feh' 'i3-gaps'  'xorg-server' 'xorg-server-common' 'picom' 'xclip')
 depends+=('i3lock-color-git' 'redshift-minimal' 'dmenu2') #AUR
+## Universal
+depends+=('screenfetch' 'alsa-utils' 'python-requests' 'dialog' 'light' 'dunst')
 # Fonts
 depends+=('ttf-hack-nerd' 'noto-fonts' 'noto-fonts-cjk' 'noto-fonts-emoji')
 # Virtualisation
 depends+=('qemu' 'lxc' 'arch-install-scripts')
 # GUI Apps
-depends+=('filezilla' 'vlc' 'p7zip' 'ranger'  'rxvt-unicode-terminfo' 'alacritty' 'firefox-developer-edition')
+depends+=('vlc' 'p7zip' 'ranger'  'rxvt-unicode-terminfo' 'alacritty' 'firefox-developer-edition')
 # Multimedia
 depends+=('w3m' 'mpd' 'ffmpeg' 'ncmpcpp' 'mpc')
 # Android
@@ -49,6 +52,7 @@ optdepends=('openvpn' 'wireguard-tools')
 ## CLI
 optdepends+=('bat' 'gtop' 'ldm')
 ## GUI
+optdepends+=('filezilla')
 ### Office
 optdepends+=('wps-office')
 ### Images
