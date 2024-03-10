@@ -29,7 +29,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+A kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='dmenu -x 760 -y 400 -i -l 20 -w 400'
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='bemenu-run -c -i -l 20 -W 0.25 --fixed-height --fn "Hack Nerd Font 9" -p "" --tb "#285577" --hb "#285577" --tf "#eeeeee" --hf "#eeeeee" --nf "#bbbbbb"'
 
 # change focus
 bindsym $mod+j focus left

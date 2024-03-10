@@ -32,8 +32,8 @@ depends+=('bash-completion' 'zsh' 'zsh-syntax-highlighting' 'task' 'git' 'htop' 
 depends+=('oh-my-zsh-git') #AUR
 # UI
 ## X11
-depends+=('xorg-xhost' 'xorg-xinit' 'scrot' 'xorg-xrandr' 'polybar' 'feh' 'i3-gaps'  'xorg-server' 'xorg-server-common' 'picom' 'xclip')
-depends+=('i3lock-color-git' 'redshift-minimal' 'dmenu2') #AUR
+depends+=('xorg-xhost' 'xorg-xinit' 'scrot' 'xorg-xrandr' 'polybar' 'feh' 'i3-gaps'  'xorg-server' 'xorg-server-common' 'picom' 'xclip' 'bemenu-x11')
+depends+=('i3lock-color-git' 'redshift-minimal') #AUR
 ## Universal
 depends+=('screenfetch' 'pipewire' 'pipewire-audio' 'pipewire-pulse' 'wireplumber' 'python-requests' 'dialog' 'light' 'dunst')
 # Fonts

@@ -1,0 +1,147 @@
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[colors.bright]
+black = "#C0C0C0"
+blue = "#02C9FF"
+cyan = "#C0F2FF"
+green = "#98C379"
+magenta = "#9285FF"
+red = "#BF616A"
+white = "#D8D8D8"
+yellow = "#EBBE65"
+
+[colors.cursor]
+cursor = "#B5A780"
+text = "#1C1B1D"
+
+[colors.dim]
+black = "#909090"
+blue = "#61AFEF"
+cyan = "#56B6C2"
+green = "#98C379"
+magenta = "#C678DD"
+red = "#E06C75"
+white = "#D8D8D8"
+yellow = "#ebbe65"
+
+[colors.normal]
+black = "#707070"
+blue = "#61AFEF"
+cyan = "#76E2FF"
+green = "#60B48A"
+magenta = "#C678DD"
+red = "#E06C75"
+white = "#D8D8D8"
+yellow = "#EBBE65"
+
+[colors.primary]
+background = "#000000"
+foreground = "#B5A780"
+
+[cursor]
+style = "Block"
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 9.5
+
+[font.bold]
+style = "Bold"
+
+[font.bold_italic]
+style = "Bold Italic"
+
+[font.italic]
+style = "Italic"
+
+[font.normal]
+family = "Hack Nerd Font"
+style = "Regular"
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "N"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ResetFontSize"
+key = "Equals"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "NumpadEquals"
+mods = "Control|Alt"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "NumpadAdd"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "NumpadSubtract"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "Paste"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "Copy"
+
+[[keyboard.bindings]]
+action = "ClearLogNotice"
+key = "L"
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\f"
+key = "L"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ScrollPageUp"
+key = "PageUp"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ScrollPageDown"
+key = "PageDown"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ScrollToTop"
+key = "Home"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ScrollToBottom"
+key = "End"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ToggleViMode"
+key = "Escape"
+mode = "Vi"
+
+[scrolling]
+history = 100000
+multiplier = 3
+
+[window]
+decorations = "none"
+dynamic_title = true
+opacity = 0.8
+
+[window.dimensions]
+columns = 108
+lines = 27
+
+[window.padding]
+x = 0
+y = 3
