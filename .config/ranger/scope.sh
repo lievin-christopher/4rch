@@ -44,7 +44,7 @@ handle_extension() {
     case "${FILE_EXTENSION_LOWER}" in
         # Archive
         a|ace|alz|arc|arj|bz|bz2|cab|cpio|deb|gz|jar|lha|lz|lzh|lzma|lzo|\
-        rpm|rz|t7z|tar|tbz|tbz2|tgz|tlz|txz|tZ|tzo|war|xpi|xz|Z|zip|sqd|tar.*)
+        rpm|rz|t7z|tar|tbz|tbz2|tgz|tlz|txz|tZ|tzo|war|xpi|xz|Z|zip|sqd|cbz|cbr|mdf|tar.*)
             echo '----- File Type Classification -----' && file --dereference --brief -- "${FILE_PATH}" && echo '----- File Content -----'
             atool --list -- "${FILE_PATH}" && exit 5
             bsdtar --list --file "${FILE_PATH}" && exit 5
@@ -52,6 +52,9 @@ handle_extension() {
         7z|apk|img.xz|iso|rar)
             # Avoid password prompt by providing empty password
             7z l -p -- "${FILE_PATH}" && exit 5
+            exit 1;;
+        rpa)
+            unrpa -l -- "${FILE_PATH}" && exit 5
             exit 1;;
 
         # PDF
@@ -104,10 +107,10 @@ handle_image() {
             convert "${FILE_PATH}" "${IMAGE_CACHE_PATH}" && exit 6
             exit 1;;
 
-#        # AVIF
-#        image/heif)
-#            convert "${FILE_PATH}" "${IMAGE_CACHE_PATH}" && exit 6
-#            exit 1;;
+        # AVIF
+        image/heif)
+            convert "${FILE_PATH}" "${IMAGE_CACHE_PATH}" && exit 6
+            exit 1;;
 
         # Image
         image/*)
@@ -160,7 +163,7 @@ handle_mime() {
 }
 
 handle_fallback() {
-    echo '----- File Type Classification -----' && file --dereference --brief -- "${FILE_PATH}" && exit 5
+    echo '----- File Type Classification -----' && file --dereference --brief -- "${FILE_PATH}" && file --dereference --brief -i -- "${FILE_PATH}" && exit 5
     exit 1
 }
 

@@ -4,7 +4,7 @@ longitude=3.06
 latitude=50.63
 
 icons = {
-        "clear sky":"%{F#ebbe65}",
+         "clear sky":"%{F#ebbe65}",
          "few clouds":"",
          "scattered clouds":"%{F#709080}",
          "broken clouds":"",
@@ -45,6 +45,7 @@ icons = {
          "fog":"",
          "sand":"%",
          "dust":"%",
+         "light intensity drizzle":"%",
          "volcanic ash":"%",
          "tornado":"%",
          "mist":""
