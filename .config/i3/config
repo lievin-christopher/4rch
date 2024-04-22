@@ -194,7 +194,7 @@ exec light -N 1
 exec --no-startup-id dunst
 exec_always --no-startup-id feh --bg-fill ~/.config/i3/back.jpg
 exec --no-startup-id redshift -P -O 4500
-exec_always --no-startup-id picom
+exec --no-startup-id picom
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 smart_borders no_gaps
 gaps outer 2
